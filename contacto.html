@@ -278,9 +278,5 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
-document.querySelectorAll('a,button,select,input,textarea').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ring.style.width=ring.style.height='52px'});
-  el.addEventListener('mouseleave',()=>{ring.style.width=ring.style.height='32px'});
-});
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
 document.querySelectorA

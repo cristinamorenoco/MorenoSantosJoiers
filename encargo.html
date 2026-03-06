@@ -99,6 +99,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.8rem 5rem;display:
 .form-submit{padding:1.1rem 3rem;background:var(--ink);color:var(--white);border:none;font-family:'Jost',sans-serif;font-size:.65rem;font-weight:400;letter-spacing:.28em;text-transform:uppercase;transition:background .3s,transform .3s;align-self:flex-start;margin-top:.5rem}
 .form-submit:hover{background:var(--lilac);transform:translateY(-2px)}
 .form-note{font-size:.65rem;color:var(--ink-light);line-height:1.7;margin-top:.5rem}
+.section-form{padding:8rem 5rem;background:var(--white)}
+.form-content-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;align-items:start}
+.form-success{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 2rem;text-align:center;gap:1.5rem}
+.form-success h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--ink)}
+.form-success p{font-size:.82rem;line-height:2;color:var(--ink-light);max-width:400px}
+
 
 footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:.6rem}
@@ -179,52 +185,6 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 </section>
 
 <!-- Budget -->
-<section class="section-budget">
-  <div class="reveal">
-    <p class="section-label">Opciones</p>
-    <h2 class="section-title">Encuentra tu<br><em>presupuesto</em></h2>
-  </div>
-  <div class="budget-grid">
-    <div class="budget-card reveal">
-      <div class="budget-range">500 – 2K</div>
-      <h3 class="budget-name">Esencial</h3>
-      <ul class="budget-features">
-        <li>Oro 18k o plata 925</li>
-        <li>1 consulta de diseño</li>
-        <li>1-2 bocetos</li>
-        <li>Gemas semipreciosas</li>
-        <li>Entrega en 3 semanas</li>
-      </ul>
-      <a href="#form" class="btn-bud">Empezar →</a>
-    </div>
-    <div class="budget-card featured reveal rd1">
-      <div class="budget-range">2K – 8K</div>
-      <h3 class="budget-name">Signature</h3>
-      <ul class="budget-features">
-        <li>Oro 18k o platino</li>
-        <li>2 consultas personales</li>
-        <li>3 propuestas de diseño</li>
-        <li>Diamantes o gemas preciosas</li>
-        <li>Seguimiento fotográfico</li>
-        <li>Entrega en 5 semanas</li>
-      </ul>
-      <a href="#form" class="btn-bud primary">Empezar →</a>
-    </div>
-    <div class="budget-card reveal rd2">
-      <div class="budget-range">8K +</div>
-      <h3 class="budget-name">Haute Joaillerie</h3>
-      <ul class="budget-features">
-        <li>Platino o oro 24k</li>
-        <li>Consultas ilimitadas</li>
-        <li>Diseño exclusivo y patentado</li>
-        <li>Gemas de excepción certificadas</li>
-        <li>Acceso al atelier durante el proceso</li>
-        <li>Entrega con ceremonia privada</li>
-      </ul>
-      <a href="#form" class="btn-bud">Empezar →</a>
-    </div>
-  </div>
-</section>
 
 <!-- ─── SERVICIOS DE REPARACIÓN Y GRABADO ─── -->
 <section class="section-services">
@@ -249,7 +209,6 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
         <li>Redimensionado de anillos</li>
         <li>Reparación de cadenas y cierres</li>
       </ul>
-      <a href="#form" class="service-cta">Solicitar presupuesto →</a>
     </div>
 
     <!-- Reparación Relojería -->
@@ -265,8 +224,8 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
         <li>Ajuste y regulación de movimiento</li>
         <li>Restauración de relojes vintage</li>
         <li>Cambio y adaptación de correas</li>
+        <li>Cambio de pilas originales</li>
       </ul>
-      <a href="#form" class="service-cta">Solicitar presupuesto →</a>
     </div>
 
     <!-- Grabado -->
@@ -283,13 +242,13 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
         <li>Interior y exterior de alianzas</li>
         <li>Grabado en reloj y caja</li>
       </ul>
-      <a href="#form" class="service-cta">Solicitar presupuesto →</a>
     </div>
 
   </div>
 </section>
 
-<!-- Form -->
+<section id="form" class="section-form">
+<div class="form-content-grid">
   <div class="form-intro reveal">
     <p class="section-label">Cuéntanos tu idea</p>
     <h2 class="section-title">Empieza a<br><em>soñar</em> tu joya</h2>
@@ -299,7 +258,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
       <cite>— Lucía Santos, Directora Creativa</cite>
     </div>
   </div>
-  <form class="encargo-form reveal rd1" onsubmit="return false">
+  <form class="encargo-form reveal rd1" id="encargo-form" onsubmit="handleEncargo(event)">
     <div class="form-row">
       <div class="form-group">
         <label>Nombre</label>
@@ -362,6 +321,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     <button type="submit" class="form-submit">Enviar solicitud</button>
     <p class="form-note">Nos pondremos en contacto contigo en menos de 24h. La consulta inicial es completamente gratuita y sin compromiso.</p>
   </form>
+</div>
 </section>
 
 <footer>
@@ -372,10 +332,19 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 
 <script>
 
-document.querySelectorAll('a,button,select,input,textarea').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ring.style.width=ring.style.height='52px'});
-  el.addEventListener('mouseleave',()=>{ring.style.width=ring.style.height='32px'});
-});
+
+
+/* ─── FORM HANDLER ─── */
+function handleEncargo(e){
+  e.preventDefault();
+  const form = document.getElementById('encargo-form');
+  const btn = form.querySelector('.form-submit');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  setTimeout(()=>{
+    form.innerHTML = '<div class="form-success"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="var(--lilac)" stroke-width="1.5"/><polyline points="14,24 21,31 34,17" stroke="var(--lilac)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>¡Solicitud recibida!</h3><p>Nos pondremos en contacto contigo en menos de 24h para agendar tu consulta inicial gratuita.</p></div>';
+  }, 800);
+}
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>

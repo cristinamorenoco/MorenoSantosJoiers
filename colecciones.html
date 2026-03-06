@@ -314,10 +314,6 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 
 <script>
 
-document.querySelectorAll('a,button,.product-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ring.style.width=ring.style.height='52px';ring.style.borderColor='rgba(180,143,200,0.9)'});
-  el.addEventListener('mouseleave',()=>{ring.style.width=ring.style.height='32px';ring.style.borderColor='rgba(180,143,200,0.6)'});
-});
 document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')});
 });
