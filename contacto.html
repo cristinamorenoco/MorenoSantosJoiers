@@ -66,7 +66,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.8rem 5rem;display:
 .info-detail strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.1rem}
 
 /* Map placeholder -->*/
-.section-map{background:var(--lilac-mist);height:350px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.section-map{background:var(--lilac-mist);height:350px;position:relative;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.map-overlay-info{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.92);padding:1rem 2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
 .map-pin-area{text-align:center;position:relative;z-index:1}
 .map-pin{font-size:3rem;color:var(--lilac);opacity:.5;display:block;margin-bottom:1rem;animation:bounce 2s ease-in-out infinite}
 .map-address{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--ink);margin-bottom:.5rem}
@@ -109,6 +109,15 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body>
 <svg style="display:none"><symbol id="ms-logo" viewBox="0 0 100 100"><polygon points="50,5 95,35 95,65 50,95 5,65 5,35" fill="none" stroke="currentColor" stroke-width="3"/><text x="50" y="42" text-anchor="middle" font-family="Jost,sans-serif" font-size="26" font-weight="400" fill="currentColor">MS</text><polygon points="50,55 65,65 50,90 35,65" fill="none" stroke="currentColor" stroke-width="2"/><line x1="50" y1="55" x2="50" y2="90" stroke="currentColor" stroke-width="1.5"/></symbol></svg>
@@ -168,20 +177,22 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
       <h3 class="form-success-title">¡Mensaje recibido! 💜</h3>
       <p class="form-success-text">Gracias por escribirnos. Uno de nuestros joyeros se pondrá en contacto contigo antes de las próximas 24 horas.</p>
     </div>
-    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+    <form class="contact-form" id="contactForm" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contacto">
+      <p style="display:none"><label>No rellenar: <input name="bot-field"></label></p>
       <div class="form-row">
         <div class="form-group">
           <label>Nombre</label>
-          <input type="text" placeholder="Tu nombre" required>
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" placeholder="tu@email.com" required>
+          <input type="email" name="email" placeholder="tu@email.com" required>
         </div>
       </div>
       <div class="form-group">
         <label>¿En qué podemos ayudarte?</label>
-        <select>
+        <select name="tema">
           <option value="">Selecciona un tema</option>
           <option>Información sobre una pieza</option>
           <option>Encargo personal</option>
@@ -193,7 +204,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
       </div>
       <div class="form-group">
         <label>Mensaje</label>
-        <textarea rows="5" placeholder="Cuéntanos lo que necesitas con el detalle que quieras..."></textarea>
+        <textarea rows="5" name="mensaje" placeholder="Cuéntanos lo que necesitas con el detalle que quieras..."></textarea>
       </div>
       <button type="submit" class="form-submit">Enviar mensaje</button>
     </form>
@@ -206,7 +217,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     <span class="info-icon">◈</span>
     <h3 class="info-title">Atelier Barcelona</h3>
     <div class="info-detail">
-      <strong>Dirección</strong>Carrer del Bisbe, 12<br>Barrio Gótico, Barcelona 08002
+      <strong>Dirección</strong>Carrer de l'Escorial, 162<br>Barcelona 08024
       <strong style="margin-top:1rem">Horario</strong>Lunes – Viernes: 10:00 – 19:00<br>Sábado: 11:00 – 18:00<br>Domingo: Cerrado
     </div>
   </div>
@@ -231,14 +242,20 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 
 <!-- Map -->
 <div class="section-map">
-  <div class="map-bg-text">Barcelona</div>
-  <div class="map-pin-area">
-    <span class="map-pin">◈</span>
-    <h3 class="map-address">Carrer del Bisbe, 12 · <em>Barcelona</em></h3>
-    <p class="map-sub">Barrio Gótico · Metro Jaume I (L4)</p>
-    <div class="map-cta">
-      <a href="https://maps.google.com" target="_blank" class="btn-outline">Abrir en Google Maps →</a>
-    </div>
+  <iframe
+    src="https://maps.google.com/maps?q=Carrer+de+l'Escorial+162,+Barcelona+08024&t=&z=16&ie=UTF8&iwloc=&output=embed"
+    width="100%"
+    height="350"
+    style="border:0;display:block;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Moreno Santos Joiers — Carrer de l'Escorial, 162, Barcelona 08024">
+  </iframe>
+  <div class="map-overlay-info">
+    <h3 class="map-address">Carrer de l'Escorial, 162 · <em>Barcelona</em></h3>
+    <p class="map-sub">08024 · Metro Fontana (L3)</p>
+    <a href="https://maps.google.com/maps?q=Carrer+de+l'Escorial+162,+Barcelona+08024" target="_blank" rel="noopener" class="btn-outline">Abrir en Google Maps →</a>
   </div>
 </div>
 
