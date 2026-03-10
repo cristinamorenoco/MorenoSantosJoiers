@@ -133,6 +133,7 @@ data = [
     ("Contacto", "Email", "Dirección", "[email protected] (ofuscado Cloudflare)", "morenosantosjoiers@gmail.com", "Email real actualizado en el HTML. Enlace mailto: funcional."),
     ("Contacto", "Teléfono", "Número", "+34 932 000 000", "+34 93 219 00 11", "Teléfono real actualizado en el HTML con href tel:+34932190011."),
     ("Contacto", "WhatsApp", "Número", "+34 600 000 000", "+34 93 219 00 11", "Mismo número que teléfono. Actualizado en el HTML con href wa.me/34932190011."),
+    ("Contacto", "WhatsApp", "Mensaje prellenado", "Hola, me gustaría obtener más información.", "Hola, he visto vuestra página web y quería pediros información sobre", "Actualizado. El usuario completa la frase antes de enviar."),
     ("Contacto", "Formulario", "Título", "Escríbenos lo que necesitas", "Escríbenos — Te respondemos en menos de 24h", "Añadir tiempo de respuesta en el título para generar confianza."),
     ("Contacto", "Formulario", "Opción dropdown 1", "Información sobre una pieza", "Información sobre una joya", "Usar 'joya' en lugar de 'pieza'."),
     ("Contacto", "Formulario", "Opción dropdown 2", "Encargo personal", "Quiero crear una joya a medida", "Más descriptivo y accionable."),
