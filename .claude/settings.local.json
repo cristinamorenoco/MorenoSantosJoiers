@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/cristinamorenoco/MorenoSantosJoiers/refs/heads/main/encargo.html\")",
+      "Bash(python3:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(lsof -i :8765)",
+      "Bash(lsof -p 34724 -i)",
+      "Bash(lsof -i -P)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/encargo.html)",
+      "Bash(done)",
+      "Bash(pip3 install openpyxl -q)",
+      "Bash(ls \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/\"*.jpg)",
+      "Bash(pip3 install Pillow -q)",
+      "WebSearch",
+      "WebFetch(domain:who.is)",
+      "WebFetch(domain:www.ionos.es)",
+      "Bash(head -10 grep -n \"<body\\\\|</style>\\\\|<script\" \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/nosotros.html\")",
+      "Bash(head -10 grep -n \"<body\\\\|</style>\\\\|<script\" \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/encargo.html\")",
+      "Bash(head -10 grep -n \"<body\\\\|</style>\\\\|<script\" \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/contacto.html\")",
+      "Bash(head -10 grep -n \"<body\\\\|</style>\\\\|<script\" \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/privacidad.html\")",
+      "Bash(head -10 grep -n \"<body\\\\|</style>\\\\|<script\" \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/envios.html\")",
+      "Bash(cp \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/Marcas/Logos/Relojes/A medida/Sin título-1_Bauhaus.png\" \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/images/marcas/bauhaus.png\")",
+      "Bash(cp \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/Marcas/Logos/Relojes/A medida/Sin título-1_Bering.png\" \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/images/marcas/bering.png\")",
+      "Bash(cp \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/Marcas/Logos/Relojes/A medida/Sin título-1_Maserati.png\" \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/images/marcas/maserati.png\")",
+      "Bash(cp \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/Marcas/Logos/Relojes/A medida/Sin título-1_Seiko.png\" \"/Users/cristina/Library/Mobile Documents/com~apple~CloudDocs/Documentos/Moreno Santos/Web/v2/images/marcas/seiko.png\")"
+    ]
+  }
+}
