@@ -353,16 +353,14 @@
 
   .piezas-label {
     position: absolute; left: 2.5rem; bottom: 2.5rem; z-index: 1;
-    padding: .7rem 1.2rem;
-    background: rgba(255,255,255,.92);
-    backdrop-filter: blur(8px);
     font-family: 'Jost', sans-serif;
     font-size: 0.6rem; font-weight: 400;
     letter-spacing: 0.5em; text-transform: uppercase;
     color: var(--lilac);
-    transition: background .3s;
+    will-change: transform;
   }
-  .piezas-half:hover .piezas-label { background: var(--white); }
+  /* Foto con modelo (en lugar de estudio): texto en blanco para contraste */
+  .piezas-half--modelo .piezas-label { color: var(--white); }
 
   /* Tira de 4 piezas destacadas */
   .piezas-grid4 {
@@ -933,7 +931,7 @@
   <!-- Slider a pantalla completa: 2 filas de 2 fotos (mitad y mitad) -->
   <div class="piezas-slider">
     <div class="piezas-row">
-      <a href="colecciones.html" class="piezas-half reveal">
+      <a href="colecciones.html" class="piezas-half piezas-half--modelo reveal">
         <!-- Reemplaza src con tu foto real (llevado por modelo) -->
         <img class="piezas-photo" src="home-slider-anillos.jpg" alt="Anillos Moreno Santos" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
@@ -962,7 +960,7 @@
         </div>
         <span class="piezas-label">Collares</span>
       </a>
-      <a href="colecciones.html" class="piezas-half reveal reveal-delay-1">
+      <a href="colecciones.html" class="piezas-half piezas-half--modelo reveal reveal-delay-1">
         <!-- Reemplaza src con tu foto real (llevado por modelo) -->
         <img class="piezas-photo" src="home-slider-pulseras.jpg" alt="Pulseras Moreno Santos" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
@@ -1228,6 +1226,28 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Etiquetas flotantes: se desplazan suavemente con el scroll (slider "Piezas que enamoran")
+  const piezasLabels = document.querySelectorAll('.piezas-label');
+  if (piezasLabels.length) {
+    let ticking = false;
+    const updatePiezasParallax = () => {
+      const vh = window.innerHeight;
+      piezasLabels.forEach(label => {
+        const rect = label.closest('.piezas-half').getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const offset = Math.max(-40, Math.min(40, (center - vh / 2) * 0.08));
+        label.style.transform = `translateY(${offset}px)`;
+      });
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) { requestAnimationFrame(updatePiezasParallax); ticking = true; }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    updatePiezasParallax();
+  }
 
   // Hamburger menu
   const burger = document.getElementById('navBurger');
