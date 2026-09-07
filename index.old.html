@@ -320,103 +320,86 @@
   }
   .section-title em { font-style: italic; color: var(--lilac); }
 
-  .collection-grid {
+  /* Slider a pantalla completa: filas de 2 fotos a media pantalla */
+  .piezas-slider {
+    margin: 0 -5rem;
+  }
+  .piezas-row {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2px;
   }
-  .collection-card {
-    position: relative; overflow: hidden; 
+  .piezas-row + .piezas-row { margin-top: 2px; }
+  .piezas-half {
+    position: relative; overflow: hidden; display: block;
+    height: 88vh; min-height: 460px;
+    background: linear-gradient(160deg, var(--lilac-mist), var(--lilac-pale));
+    text-decoration: none;
   }
-  .collection-card:first-child { grid-row: span 2; }
-
-  .card-bg {
-    width: 100%; height: 100%; min-height: 300px;
-    position: relative;
-    transition: transform .7s ease;
-  }
-  .collection-card:hover .card-bg { transform: scale(1.03); }
-
-  /* Foto real en card */
-  .card-photo {
+  .piezas-photo {
     width: 100%; height: 100%;
-    object-fit: cover;
-    position: absolute; inset: 0;
-    display: block;
-    transition: transform .7s ease;
+    object-fit: cover; display: block;
+    transition: transform .9s ease;
   }
-  .collection-card:hover .card-photo { transform: scale(1.04); }
+  .piezas-half:hover .piezas-photo { transform: scale(1.04); }
 
   /* Placeholder (se oculta si hay foto) */
-  .card-placeholder {
+  .piezas-placeholder {
     position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.5rem; color: var(--lilac); opacity: .25;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: .8rem;
   }
-  .card-photo + .card-placeholder { display: none; }
+  .piezas-photo ~ .piezas-placeholder { display: none; }
 
-  .card-1 .card-bg { min-height: 620px; background: linear-gradient(160deg, var(--lilac-mist), #EEE0F8); }
-  .card-2 .card-bg { background: linear-gradient(135deg, #F8F4FD, #EDE0F8); }
-  .card-3 .card-bg { background: linear-gradient(135deg, #F0F4FD, #E8EEF8); }
-  .card-4 .card-bg { background: linear-gradient(135deg, #FDF4F8, #F5E8EE); }
-  .card-5 .card-bg { background: linear-gradient(135deg, #F4FDF8, #E8F5EE); }
-
-  .card-overlay {
+  .piezas-half::after {
+    content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(255,255,255,0.95) 0%, transparent 55%);
+    background: linear-gradient(to top, rgba(26,21,32,.6) 0%, transparent 40%);
     pointer-events: none;
   }
-  .card-info {
-    position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem 2rem 2rem;
-  }
-  .card-collection {
-    font-size: .55rem; font-weight: 400;
-    letter-spacing: .4em; text-transform: uppercase;
-    color: var(--lilac); margin-bottom: .3rem;
-  }
-  .card-name {
+  .piezas-label {
+    position: absolute; left: 2.5rem; bottom: 2.5rem; z-index: 1;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 300; color: var(--ink);
-    margin-bottom: .4rem;
+    font-size: 1.7rem; font-style: italic; font-weight: 400;
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-color: rgba(255,255,255,.5);
+    transition: text-decoration-color .3s;
   }
-  .card-name em { font-style: italic; color: var(--lilac); }
+  .piezas-half:hover .piezas-label { text-decoration-color: var(--white); }
 
-  /* Precio — visible cuando integres e-commerce */
-  .card-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; font-weight: 300; color: var(--ink-mid);
-    margin-bottom: .5rem;
-    /* Cambia a display:block cuando actives tienda */
-    display: none;
+  /* Tira de 4 piezas destacadas */
+  .piezas-grid4 {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
   }
-
-  /* Botón comprar — aparece en hover, listo para e-commerce */
-  .card-buy {
-    display: inline-block;
-    padding: .5rem 1.2rem;
-    background: var(--ink); color: var(--white);
+  .piezas-item { display: block; text-decoration: none; }
+  .piezas-item-photo {
+    position: relative; overflow: hidden;
+    aspect-ratio: 4/5;
+    background: var(--lilac-mist);
+    margin-bottom: 1.2rem;
+  }
+  .piezas-item-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform .6s ease;
+  }
+  .piezas-item:hover .piezas-item-photo img { transform: scale(1.05); }
+  .piezas-item-photo img ~ .piezas-placeholder { display: none; }
+  .piezas-item-name {
     font-family: 'Jost', sans-serif;
-    font-size: .55rem; font-weight: 400;
-    letter-spacing: .2em; text-transform: uppercase;
-    text-decoration: none; border: none; 
-    opacity: 0; transform: translateY(6px);
-    transition: opacity .3s, transform .3s, background .3s;
-    /* Cambia a display:inline-block y quita opacity:0 cuando actives tienda */
-    display: none;
+    font-size: .85rem; font-weight: 400; letter-spacing: .03em;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--border);
+    transition: color .3s, text-decoration-color .3s;
   }
-  .collection-card:hover .card-buy { opacity: 1; transform: translateY(0); }
-  .card-buy:hover { background: var(--lilac); }
-
-  .card-arrow {
-    position: absolute; bottom: 2rem; right: 1.5rem;
-    width: 36px; height: 36px;
-    border: 1px solid var(--border); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: .9rem; color: var(--lilac);
-    opacity: 0; transform: translateX(-8px);
-    transition: opacity .3s, transform .3s;
-  }
-  .collection-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+  .piezas-item:hover .piezas-item-name { color: var(--lilac); text-decoration-color: var(--lilac); }
 
   /* ─── STORY ─── */
   .section-story {
@@ -768,6 +751,8 @@
     .section-collections, .section-story, .section-brands, .section-contact { padding: 6rem 2.5rem; }
     .section-craft { padding: 3.5rem 2.5rem; }
     footer { padding: 2.5rem; }
+    .piezas-slider { margin: 0 -2.5rem; }
+    .piezas-grid4 { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2rem; }
   }
 
   @media (max-width: 768px) {
@@ -793,9 +778,11 @@
     /* Sections */
     .section-collections { padding: 5rem 1.5rem; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-    .collection-grid { grid-template-columns: 1fr; }
-    .collection-card:first-child { grid-row: span 1; }
-    .card-1 .card-bg { min-height: 340px; }
+    .piezas-slider { margin: 0 -1.5rem; }
+    .piezas-row { grid-template-columns: 1fr; }
+    .piezas-half { height: 70vh; min-height: 380px; }
+    .piezas-label { left: 1.5rem; bottom: 1.5rem; font-size: 1.4rem; }
+    .piezas-grid4 { grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
 
     .section-story { grid-template-columns: 1fr; min-height: unset; }
     .story-frame { aspect-ratio: unset; height: auto; justify-content: center; padding: 2rem; }
@@ -949,73 +936,92 @@
     </div>
     <a href="colecciones.html" class="btn-outline reveal reveal-delay-2">Ver todo →</a>
   </div>
-  <div class="collection-grid">
-    <div class="collection-card card-1 reveal">
-      <div class="card-bg">
-        <!-- Reemplaza src con tu foto real -->
-        <img class="card-photo" src="coleccion-signature.jpg" alt="Colección Signature" onerror="this.style.display='none'">
-        <div class="card-placeholder">◈</div>
-      </div>
-      <div class="card-overlay"></div>
-      <div class="card-info">
-        <p class="card-collection">Colección Signature</p>
-        <h3 class="card-name">Oro y<br><em>Diamantes</em></h3>
-        <a href="colecciones.html#signature" class="card-buy">Ver colección</a>
-      </div>
-      <div class="card-arrow">→</div>
+  <!-- Slider a pantalla completa: 2 filas de 2 fotos (mitad y mitad) -->
+  <div class="piezas-slider">
+    <div class="piezas-row">
+      <a href="colecciones.html" class="piezas-half reveal">
+        <!-- Reemplaza src con tu foto real (llevado por modelo) -->
+        <img class="piezas-photo" src="home-slider-anillos.jpg" alt="Anillos Moreno Santos" onerror="this.style.display='none'">
+        <div class="piezas-placeholder">
+          <span class="photo-placeholder-icon">◈</span>
+          <span class="photo-placeholder-text">Foto modelo — Anillos</span>
+        </div>
+        <span class="piezas-label">Anillos</span>
+      </a>
+      <a href="colecciones.html" class="piezas-half reveal reveal-delay-1">
+        <!-- Reemplaza src con tu foto real (foto de estudio) -->
+        <img class="piezas-photo" src="home-slider-pendientes.jpg" alt="Pendientes Moreno Santos" onerror="this.style.display='none'">
+        <div class="piezas-placeholder">
+          <span class="photo-placeholder-icon">✦</span>
+          <span class="photo-placeholder-text">Foto estudio — Pendientes</span>
+        </div>
+        <span class="piezas-label">Pendientes</span>
+      </a>
     </div>
-    <div class="collection-card card-2 reveal reveal-delay-1">
-      <div class="card-bg">
-        <img class="card-photo" src="coleccion-nupcial.jpg" alt="Nupcial" onerror="this.style.display='none'">
-        <div class="card-placeholder">◇</div>
-      </div>
-      <div class="card-overlay"></div>
-      <div class="card-info">
-        <p class="card-collection">Nupcial</p>
-        <h3 class="card-name">Solitarios de<br><em>compromiso</em></h3>
-        <a href="colecciones.html#nupcial" class="card-buy">Ver colección</a>
-      </div>
-      <div class="card-arrow">→</div>
+    <div class="piezas-row">
+      <a href="colecciones.html" class="piezas-half reveal">
+        <!-- Reemplaza src con tu foto real (foto de estudio) -->
+        <img class="piezas-photo" src="home-slider-collares.jpg" alt="Collares Moreno Santos" onerror="this.style.display='none'">
+        <div class="piezas-placeholder">
+          <span class="photo-placeholder-icon">◇</span>
+          <span class="photo-placeholder-text">Foto estudio — Collares</span>
+        </div>
+        <span class="piezas-label">Collares</span>
+      </a>
+      <a href="colecciones.html" class="piezas-half reveal reveal-delay-1">
+        <!-- Reemplaza src con tu foto real (llevado por modelo) -->
+        <img class="piezas-photo" src="home-slider-pulseras.jpg" alt="Pulseras Moreno Santos" onerror="this.style.display='none'">
+        <div class="piezas-placeholder">
+          <span class="photo-placeholder-icon">◆</span>
+          <span class="photo-placeholder-text">Foto modelo — Pulseras</span>
+        </div>
+        <span class="piezas-label">Pulseras</span>
+      </a>
     </div>
-    <div class="collection-card card-3 reveal reveal-delay-2">
-      <div class="card-bg">
-        <img class="card-photo" src="coleccion-esmeraldas.jpg" alt="Esmeraldas" onerror="this.style.display='none'">
-        <div class="card-placeholder">✦</div>
+  </div>
+
+  <!-- Tira de 4 piezas destacadas (pendiente de elegir fotos) -->
+  <div class="piezas-grid4">
+    <a href="colecciones.html" class="piezas-item reveal">
+      <div class="piezas-item-photo">
+        <img src="home-destacado-1.jpg" alt="Pieza destacada 1" onerror="this.style.display='none'">
+        <div class="piezas-placeholder">
+          <span class="photo-placeholder-icon">✧</span>
+          <span class="photo-placeholder-text">Foto pieza 1</span>
+        </div>
       </div>
-      <div class="card-overlay"></div>
-      <div class="card-info">
-        <p class="card-collection">Nupcial</p>
-        <h3 class="card-name">Alianzas<br><em>de boda</em></h3>
-        <a href="colecciones.html#nupcial" class="card-buy">Ver colección</a>
+      <span class="piezas-item-name">Pieza 01</span>
+    </a>
+    <a href="colecciones.html" class="piezas-item reveal reveal-delay-1">
+      <div class="piezas-item-photo">
+        <img src="home-destacado-2.jpg" alt="Pieza destacada 2" onerror="this.style.display='none'">
+        <div class="piezas-placeholder">
+          <span class="photo-placeholder-icon">✧</span>
+          <span class="photo-placeholder-text">Foto pieza 2</span>
+        </div>
       </div>
-      <div class="card-arrow">→</div>
-    </div>
-    <div class="collection-card card-4 reveal reveal-delay-3">
-      <div class="card-bg">
-        <img class="card-photo" src="coleccion-zafiros.jpg" alt="Zafiros" onerror="this.style.display='none'">
-        <div class="card-placeholder">◆</div>
+      <span class="piezas-item-name">Pieza 02</span>
+    </a>
+    <a href="colecciones.html" class="piezas-item reveal reveal-delay-2">
+      <div class="piezas-item-photo">
+        <img src="home-destacado-3.jpg" alt="Pieza destacada 3" onerror="this.style.display='none'">
+        <div class="piezas-placeholder">
+          <span class="photo-placeholder-icon">✧</span>
+          <span class="photo-placeholder-text">Foto pieza 3</span>
+        </div>
       </div>
-      <div class="card-overlay"></div>
-      <div class="card-info">
-        <p class="card-collection">Piezas clásicas</p>
-        <h3 class="card-name">Oro amarillo y<br><em>blanco 18k</em></h3>
-        <a href="colecciones.html#clasicos" class="card-buy">Ver colección</a>
+      <span class="piezas-item-name">Pieza 03</span>
+    </a>
+    <a href="colecciones.html" class="piezas-item reveal reveal-delay-3">
+      <div class="piezas-item-photo">
+        <img src="home-destacado-4.jpg" alt="Pieza destacada 4" onerror="this.style.display='none'">
+        <div class="piezas-placeholder">
+          <span class="photo-placeholder-icon">✧</span>
+          <span class="photo-placeholder-text">Foto pieza 4</span>
+        </div>
       </div>
-      <div class="card-arrow">→</div>
-    </div>
-    <div class="collection-card card-5 reveal reveal-delay-4">
-      <div class="card-bg">
-        <img class="card-photo" src="coleccion-gemas.jpg" alt="Colección con gemas" onerror="this.style.display='none'">
-        <div class="card-placeholder">✧</div>
-      </div>
-      <div class="card-overlay"></div>
-      <div class="card-info">
-        <p class="card-collection">Colección con gemas</p>
-        <h3 class="card-name">Piedras<br><em>preciosas</em></h3>
-        <a href="colecciones.html#gemas" class="card-buy">Ver colección</a>
-      </div>
-      <div class="card-arrow">→</div>
-    </div>
+      <span class="piezas-item-name">Pieza 04</span>
+    </a>
   </div>
 </section>
 
