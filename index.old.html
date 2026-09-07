@@ -351,23 +351,18 @@
   }
   .piezas-photo ~ .piezas-placeholder { display: none; }
 
-  .piezas-half::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(26,21,32,.6) 0%, transparent 40%);
-    pointer-events: none;
-  }
   .piezas-label {
     position: absolute; left: 2.5rem; bottom: 2.5rem; z-index: 1;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem; font-style: italic; font-weight: 400;
-    color: var(--white);
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-color: rgba(255,255,255,.5);
-    transition: text-decoration-color .3s;
+    padding: .7rem 1.2rem;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(8px);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.5em; text-transform: uppercase;
+    color: var(--lilac);
+    transition: background .3s;
   }
-  .piezas-half:hover .piezas-label { text-decoration-color: var(--white); }
+  .piezas-half:hover .piezas-label { background: var(--white); }
 
   /* Tira de 4 piezas destacadas */
   .piezas-grid4 {
@@ -932,9 +927,8 @@
   <div class="section-header reveal">
     <div>
       <p class="section-label">Nuestras colecciones</p>
-      <h2 class="section-title">Piezas que<br><em>enamoran</em></h2>
+      <h2 class="section-title">Piezas que <em>enamoran</em></h2>
     </div>
-    <a href="colecciones.html" class="btn-outline reveal reveal-delay-2">Ver todo →</a>
   </div>
   <!-- Slider a pantalla completa: 2 filas de 2 fotos (mitad y mitad) -->
   <div class="piezas-slider">
