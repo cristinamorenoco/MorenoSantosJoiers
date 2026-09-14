@@ -5,6 +5,9 @@ Thumbs.db
 # macOS
 .DS_Store
 
+# Archivos temporales de Office (se crean al tener el xlsx/docx abierto)
+~$*
+
 fotos-web-checklist.numbers/desktop.ini
 textos_web_morenosantos.numbers/desktop.ini
 
