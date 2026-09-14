@@ -1,2 +1,10 @@
+# Windows
+desktop.ini
+Thumbs.db
+
+# macOS
+.DS_Store
+
 fotos-web-checklist.numbers/desktop.ini
 textos_web_morenosantos.numbers/desktop.ini
+
