@@ -217,13 +217,22 @@
   .hero-photo:first-child {
     grid-row: span 2;
   }
-  .hero-photo img {
+  .hero-photo-base, .hero-photo-alt {
+    position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
-    transition: transform .7s ease;
     display: block;
+    transition: transform .7s ease, opacity .6s ease;
   }
-  .hero-photo:hover img { transform: scale(1.04); }
+  .hero-photo-base { z-index: 1; }
+  /* 2ª foto: aparece con un fundido al pasar el ratón, sin necesidad de hacer clic */
+  .hero-photo-alt {
+    z-index: 2;
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  .hero-photo:hover .hero-photo-base { transform: scale(1.04); }
+  .hero-photo:hover .hero-photo-alt { opacity: 1; transform: scale(1.04); }
 
   /* Placeholder shown when no image loaded */
   .hero-photo .photo-placeholder {
@@ -867,26 +876,29 @@
 
   <div class="hero-right">
     <div class="hero-photo-grid">
-      <!-- FOTO PRINCIPAL: reemplaza src con tu foto real -->
+      <!-- FOTO PRINCIPAL: reemplaza src con tu foto real. Al pasar el ratón se muestra foto-principal-modelo.jpg -->
       <div class="hero-photo">
-        <img src="foto-principal.jpg" onerror="this.closest('section,div').classList.add('img-missing')" alt="Joya Moreno Santos" onerror="this.style.display='none'">
+        <img class="hero-photo-base" src="foto-principal.jpg" alt="Joya Moreno Santos — foto de estudio" onerror="this.style.display='none'">
+        <img class="hero-photo-alt" src="foto-principal-modelo.jpg" alt="Joya Moreno Santos — puesta en modelo" onerror="this.style.display='none'">
         <div class="photo-placeholder">
           <span class="photo-placeholder-icon">◈</span>
           <span class="photo-placeholder-text">Foto producto 1</span>
         </div>
         <div class="hero-photo-badge">Colección 2026</div>
       </div>
-      <!-- FOTO 2 -->
+      <!-- FOTO 2: al pasar el ratón se muestra foto-hero-2-modelo.jpg -->
       <div class="hero-photo">
-        <img src="foto-hero-2.jpg" alt="Anillo Moreno Santos" onerror="this.style.display='none'">
+        <img class="hero-photo-base" src="foto-hero-2.jpg" alt="Anillo Moreno Santos — foto de estudio" onerror="this.style.display='none'">
+        <img class="hero-photo-alt" src="foto-hero-2-modelo.jpg" alt="Anillo Moreno Santos — puesto en modelo" onerror="this.style.display='none'">
         <div class="photo-placeholder">
           <span class="photo-placeholder-icon">✦</span>
           <span class="photo-placeholder-text">Foto producto 2</span>
         </div>
       </div>
-      <!-- FOTO 3 -->
+      <!-- FOTO 3: al pasar el ratón se muestra foto-hero-3-modelo.jpg -->
       <div class="hero-photo">
-        <img src="foto-hero-3.jpg" alt="Pendientes Moreno Santos" onerror="this.style.display='none'">
+        <img class="hero-photo-base" src="foto-hero-3.jpg" alt="Pendientes Moreno Santos — foto de estudio" onerror="this.style.display='none'">
+        <img class="hero-photo-alt" src="foto-hero-3-modelo.jpg" alt="Pendientes Moreno Santos — puestos en modelo" onerror="this.style.display='none'">
         <div class="photo-placeholder">
           <span class="photo-placeholder-icon">◇</span>
           <span class="photo-placeholder-text">Foto producto 3</span>
@@ -933,7 +945,7 @@
     <div class="piezas-row">
       <a href="colecciones.html" class="piezas-half piezas-half--modelo reveal">
         <!-- Reemplaza src con tu foto real (llevado por modelo) -->
-        <img class="piezas-photo" src="home-slider-anillos.jpg" alt="Anillos Moreno Santos" onerror="this.style.display='none'">
+        <img class="piezas-photo" src="images/home/home-slider-anillos.jpg" alt="Anillos Moreno Santos" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">◈</span>
           <span class="photo-placeholder-text">Foto modelo — Anillos</span>
@@ -942,7 +954,7 @@
       </a>
       <a href="colecciones.html" class="piezas-half reveal reveal-delay-1">
         <!-- Reemplaza src con tu foto real (foto de estudio) -->
-        <img class="piezas-photo" src="home-slider-pendientes.jpg" alt="Pendientes Moreno Santos" onerror="this.style.display='none'">
+        <img class="piezas-photo" src="images/home/home-slider-pendientes.jpg" alt="Pendientes Moreno Santos" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">✦</span>
           <span class="photo-placeholder-text">Foto estudio — Pendientes</span>
@@ -953,7 +965,7 @@
     <div class="piezas-row">
       <a href="colecciones.html" class="piezas-half reveal">
         <!-- Reemplaza src con tu foto real (foto de estudio) -->
-        <img class="piezas-photo" src="home-slider-collares.jpg" alt="Collares Moreno Santos" onerror="this.style.display='none'">
+        <img class="piezas-photo" src="images/home/home-slider-collares.jpg" alt="Collares Moreno Santos" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">◇</span>
           <span class="photo-placeholder-text">Foto estudio — Collares</span>
@@ -962,7 +974,7 @@
       </a>
       <a href="colecciones.html" class="piezas-half piezas-half--modelo reveal reveal-delay-1">
         <!-- Reemplaza src con tu foto real (llevado por modelo) -->
-        <img class="piezas-photo" src="home-slider-pulseras.jpg" alt="Pulseras Moreno Santos" onerror="this.style.display='none'">
+        <img class="piezas-photo" src="images/home/home-slider-pulseras.jpg" alt="Pulseras Moreno Santos" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">◆</span>
           <span class="photo-placeholder-text">Foto modelo — Pulseras</span>
@@ -976,7 +988,7 @@
   <div class="piezas-grid4">
     <a href="colecciones.html" class="piezas-item reveal">
       <div class="piezas-item-photo">
-        <img src="home-destacado-1.jpg" alt="Pieza destacada 1" onerror="this.style.display='none'">
+        <img src="images/home/home-destacado-1.jpg" alt="Pieza destacada 1" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">✧</span>
           <span class="photo-placeholder-text">Foto pieza 1</span>
@@ -986,7 +998,7 @@
     </a>
     <a href="colecciones.html" class="piezas-item reveal reveal-delay-1">
       <div class="piezas-item-photo">
-        <img src="home-destacado-2.jpg" alt="Pieza destacada 2" onerror="this.style.display='none'">
+        <img src="images/home/home-destacado-2.jpg" alt="Pieza destacada 2" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">✧</span>
           <span class="photo-placeholder-text">Foto pieza 2</span>
@@ -996,7 +1008,7 @@
     </a>
     <a href="colecciones.html" class="piezas-item reveal reveal-delay-2">
       <div class="piezas-item-photo">
-        <img src="home-destacado-3.jpg" alt="Pieza destacada 3" onerror="this.style.display='none'">
+        <img src="images/home/home-destacado-3.jpg" alt="Pieza destacada 3" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">✧</span>
           <span class="photo-placeholder-text">Foto pieza 3</span>
@@ -1006,7 +1018,7 @@
     </a>
     <a href="colecciones.html" class="piezas-item reveal reveal-delay-3">
       <div class="piezas-item-photo">
-        <img src="home-destacado-4.jpg" alt="Pieza destacada 4" onerror="this.style.display='none'">
+        <img src="images/home/home-destacado-4.jpg" alt="Pieza destacada 4" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">✧</span>
           <span class="photo-placeholder-text">Foto pieza 4</span>
