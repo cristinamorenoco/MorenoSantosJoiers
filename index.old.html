@@ -346,12 +346,21 @@
     background: linear-gradient(160deg, var(--lilac-mist), var(--lilac-pale));
     text-decoration: none;
   }
-  .piezas-photo {
+  .piezas-photo-base, .piezas-photo-alt {
+    position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover; display: block;
-    transition: transform .9s ease;
+    transition: transform .9s ease, opacity .6s ease;
   }
-  .piezas-half:hover .piezas-photo { transform: scale(1.04); }
+  .piezas-photo-base { z-index: 1; }
+  /* Foto con modelo: aparece con un fundido al pasar el ratón, sin necesidad de hacer clic */
+  .piezas-photo-alt {
+    z-index: 2;
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  .piezas-half:hover .piezas-photo-base { transform: scale(1.04); }
+  .piezas-half:hover .piezas-photo-alt { opacity: 1; transform: scale(1.04); }
 
   /* Placeholder (se oculta si hay foto) */
   .piezas-placeholder {
@@ -359,18 +368,19 @@
     display: flex; flex-direction: column;
     align-items: center; justify-content: center; gap: .8rem;
   }
-  .piezas-photo ~ .piezas-placeholder { display: none; }
+  .piezas-half img ~ .piezas-placeholder { display: none; }
 
   .piezas-label {
-    position: absolute; left: 2.5rem; bottom: 2.5rem; z-index: 1;
+    position: absolute; left: 2.5rem; bottom: 2.5rem; z-index: 3;
     font-family: 'Jost', sans-serif;
     font-size: 0.6rem; font-weight: 400;
     letter-spacing: 0.5em; text-transform: uppercase;
     color: var(--lilac);
+    transition: color .4s ease;
     will-change: transform;
   }
-  /* Foto con modelo (en lugar de estudio): texto en blanco para contraste */
-  .piezas-half--modelo .piezas-label { color: var(--white); }
+  /* Al pasar el ratón se ve la foto con modelo: texto en blanco para contraste */
+  .piezas-half:hover .piezas-label { color: var(--white); }
 
   /* Tira de 4 piezas destacadas */
   .piezas-grid4 {
@@ -944,41 +954,45 @@
   <!-- Slider a pantalla completa: 2 filas de 2 fotos (mitad y mitad) -->
   <div class="piezas-slider">
     <div class="piezas-row">
-      <a href="colecciones.html" class="piezas-half piezas-half--modelo reveal">
-        <!-- Reemplaza src con tu foto real (llevado por modelo) -->
-        <img class="piezas-photo" src="images/home/home-slider-anillos.jpg" alt="Anillos Moreno Santos" onerror="this.style.display='none'">
+      <a href="colecciones.html" class="piezas-half reveal">
+        <!-- Foto de estudio. Al pasar el ratón se ve home-slider-anillos-modelo.jpg -->
+        <img class="piezas-photo-base" src="images/home/home-slider-anillos.jpg" alt="Anillos Moreno Santos — foto de estudio" onerror="this.style.display='none'">
+        <img class="piezas-photo-alt" src="images/home/home-slider-anillos-modelo.jpg" alt="Anillos Moreno Santos — puestos en modelo" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">◈</span>
-          <span class="photo-placeholder-text">Foto modelo — Anillos</span>
+          <span class="photo-placeholder-text">Anillos</span>
         </div>
         <span class="piezas-label">Anillos</span>
       </a>
       <a href="colecciones.html" class="piezas-half reveal reveal-delay-1">
-        <!-- Reemplaza src con tu foto real (foto de estudio) -->
-        <img class="piezas-photo" src="images/home/home-slider-pendientes.jpg" alt="Pendientes Moreno Santos" onerror="this.style.display='none'">
+        <!-- Foto de estudio. Al pasar el ratón se ve home-slider-pendientes-modelo.jpg -->
+        <img class="piezas-photo-base" src="images/home/home-slider-pendientes.jpg" alt="Pendientes Moreno Santos — foto de estudio" onerror="this.style.display='none'">
+        <img class="piezas-photo-alt" src="images/home/home-slider-pendientes-modelo.jpg" alt="Pendientes Moreno Santos — puestos en modelo" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">✦</span>
-          <span class="photo-placeholder-text">Foto estudio — Pendientes</span>
+          <span class="photo-placeholder-text">Pendientes</span>
         </div>
         <span class="piezas-label">Pendientes</span>
       </a>
     </div>
     <div class="piezas-row">
       <a href="colecciones.html" class="piezas-half reveal">
-        <!-- Reemplaza src con tu foto real (foto de estudio) -->
-        <img class="piezas-photo" src="images/home/home-slider-collares.jpg" alt="Collares Moreno Santos" onerror="this.style.display='none'">
+        <!-- Foto de estudio. Al pasar el ratón se ve home-slider-collares-modelo.jpg -->
+        <img class="piezas-photo-base" src="images/home/home-slider-collares.jpg" alt="Collares Moreno Santos — foto de estudio" onerror="this.style.display='none'">
+        <img class="piezas-photo-alt" src="images/home/home-slider-collares-modelo.jpg" alt="Collares Moreno Santos — puestos en modelo" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">◇</span>
-          <span class="photo-placeholder-text">Foto estudio — Collares</span>
+          <span class="photo-placeholder-text">Collares</span>
         </div>
         <span class="piezas-label">Collares</span>
       </a>
-      <a href="colecciones.html" class="piezas-half piezas-half--modelo reveal reveal-delay-1">
-        <!-- Reemplaza src con tu foto real (llevado por modelo) -->
-        <img class="piezas-photo" src="images/home/home-slider-pulseras.jpg" alt="Pulseras Moreno Santos" onerror="this.style.display='none'">
+      <a href="colecciones.html" class="piezas-half reveal reveal-delay-1">
+        <!-- Foto de estudio. Al pasar el ratón se ve home-slider-pulseras-modelo.jpg -->
+        <img class="piezas-photo-base" src="images/home/home-slider-pulseras.jpg" alt="Pulseras Moreno Santos — foto de estudio" onerror="this.style.display='none'">
+        <img class="piezas-photo-alt" src="images/home/home-slider-pulseras-modelo.jpg" alt="Pulseras Moreno Santos — puestas en modelo" onerror="this.style.display='none'">
         <div class="piezas-placeholder">
           <span class="photo-placeholder-icon">◆</span>
-          <span class="photo-placeholder-text">Foto modelo — Pulseras</span>
+          <span class="photo-placeholder-text">Pulseras</span>
         </div>
         <span class="piezas-label">Pulseras</span>
       </a>
