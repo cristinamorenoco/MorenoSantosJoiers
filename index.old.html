@@ -55,6 +55,63 @@
   
   
 
+  /* ─── PROMO LAYER ─── */
+  .promo-overlay {
+    position: fixed; inset: 0; z-index: 10000;
+    background: rgba(26,21,32,0.62);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem;
+    animation: fadeDown .5s ease both;
+  }
+  html.promo-closed .promo-overlay { display: none; }
+  .promo-card {
+    position: relative;
+    display: grid; grid-template-columns: 1fr 1fr;
+    width: 100%; max-width: 760px;
+    background: var(--white);
+    box-shadow: 0 30px 80px rgba(26,21,32,0.35);
+  }
+  .promo-img {
+    width: 100%; height: 100%; min-height: 420px;
+    object-fit: cover; display: block;
+    order: 2;
+  }
+  .promo-body {
+    padding: 3rem 2.75rem;
+    display: flex; flex-direction: column; justify-content: center;
+    text-align: center;
+  }
+  .promo-eyebrow {
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--lilac); margin-bottom: 1.25rem;
+  }
+  .promo-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 400; line-height: 1.1;
+    color: var(--ink); margin-bottom: 1.25rem;
+  }
+  .promo-title em { color: var(--ink); font-style: italic; }
+  .promo-text em { font-style: italic; }
+  .promo-text {
+    font-size: 0.8rem; line-height: 1.8; color: var(--ink-mid);
+  }
+  .promo-close {
+    position: absolute; top: 0.75rem; right: 0.75rem; z-index: 2;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--white); border: 1px solid var(--border);
+    color: var(--ink); font-size: 1.4rem; line-height: 1;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background .3s, color .3s;
+  }
+  .promo-close:hover { background: var(--lilac); color: var(--white); }
+  @media (max-width: 640px) {
+    .promo-card { grid-template-columns: 1fr; max-height: 92vh; overflow-y: auto; }
+    .promo-img { min-height: 0; height: 240px; order: -1; }
+    .promo-body { padding: 2rem 1.75rem 2.25rem; }
+    .promo-title { font-size: 2rem; }
+  }
+
   /* ─── NAV ─── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -533,6 +590,7 @@
     gap: 1px;
   }
   .brands-grid--jewelry { grid-template-columns: repeat(3, 1fr); }
+  .brands-grid--jewelry .brand-card:last-child:nth-child(3n+1) { grid-column: 2; }
   .brands-grid--watches { grid-template-columns: repeat(2, 1fr); }
   .brands-grid--watches .brand-card {
     display: flex; flex-direction: row;
@@ -813,6 +871,7 @@
 
     .section-brands { padding: 5rem 1.5rem; }
     .brands-grid--jewelry { grid-template-columns: repeat(2, 1fr); }
+    .brands-grid--jewelry .brand-card:last-child:nth-child(3n+1) { grid-column: auto; }
     .brands-grid--jewelry .brand-img-wrap { width: 85%; }
     .brands-grid--watches { grid-template-columns: 1fr; }
     .brands-grid--watches .brand-card { min-height: 260px; }
@@ -862,6 +921,36 @@
     <line x1="50" y1="55" x2="35" y2="65" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
   </symbol>
 </svg>
+
+<!-- Capa promocional: próximamente Novecento -->
+<div class="promo-overlay" id="promoOverlay" role="dialog" aria-modal="true" aria-labelledby="promoTitle">
+  <div class="promo-card">
+    <button class="promo-close" id="promoClose" aria-label="Cerrar">&times;</button>
+    <div class="promo-body">
+      <p class="promo-eyebrow">Próximamente</p>
+      <h2 class="promo-title" id="promoTitle">Novecento <em>Noventa Nove</em></h2>
+      <p class="promo-text">Firma italiana de alta joyería artesanal célebre por la técnica flexible <em>tubogas</em> utilizando oro y gemas preciosas</p>
+    </div>
+    <img class="promo-img" src="images/novecento-promo.jpg" alt="Collar y anillo tubogas de Novecento con diamantes" onerror="this.style.display='none'">
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'ms-promo-novecento', root = document.documentElement;
+  try { if (localStorage.getItem(KEY) === '1') root.classList.add('promo-closed'); } catch (e) {}
+  function close() {
+    root.classList.add('promo-closed');
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+  }
+  document.getElementById('promoClose').addEventListener('click', close);
+  document.getElementById('promoOverlay').addEventListener('click', function (e) {
+    if (e.target === this) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+</script>
 
 <!-- Nav -->
 <nav>
@@ -1095,6 +1184,14 @@
           <p class="brand-name">Leaf</p>
           <p class="brand-subtitle">Joyería hecha en Portugal</p>
           <p class="brand-material">Plata · Oro</p>
+        </div>
+        <div class="brand-card brand-card--soon reveal">
+          <div class="brand-img-wrap">
+            <span class="brand-img-placeholder">Logo próximamente</span>
+          </div>
+          <p class="brand-name">Novecento Noventa Nove</p>
+          <p class="brand-subtitle">Próximamente en Moreno Santos</p>
+          <p class="brand-material">Alta joyería</p>
         </div>
         <div class="brand-card reveal reveal-delay-1">
           <div class="brand-img-wrap">
