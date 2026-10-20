@@ -175,9 +175,11 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .alianzas-layout{grid-template-columns:minmax(0,1fr) minmax(0,720px);align-items:stretch}
 .alianzas-intro{border-left:none;padding:3.5rem 3.5rem 3rem;justify-content:flex-start}
 .alianzas-intro .module-ext-title{margin-bottom:2rem}
-.alianzas-steps{list-style:none;counter-reset:paso;margin:0 0 2.5rem;padding:0}
-.alianzas-steps li{counter-increment:paso;font-family:'Jost',sans-serif;font-size:1rem;line-height:1.5;color:var(--ink);padding:.35rem 0 .35rem 2.2rem;position:relative}
-.alianzas-steps li::before{content:counter(paso);position:absolute;left:0;top:.35rem;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--lilac)}
+.alianzas-steps{position:relative;display:flex;flex-direction:column;gap:1.4rem;margin:0 0 2.5rem}
+.alianzas-steps::before{content:'';position:absolute;left:1.5rem;top:1.5rem;bottom:1.5rem;width:1px;background:linear-gradient(to bottom,var(--lilac-pale),var(--border))}
+.step-v{position:relative;display:flex;align-items:center;gap:1.4rem}
+.alianzas-steps .step-number{width:3rem;height:3rem;margin:0;flex-shrink:0;font-size:1rem}
+.alianzas-steps .step-title{margin:0;font-size:1.15rem}
 .alianzas-notes p{font-size:.9rem;line-height:1.8;color:var(--ink-light);margin-bottom:1rem}
 .alianzas-config{padding:0;overflow:hidden;border-left:1px solid var(--border)}
 .alianzas-config iframe{width:100%;height:720px;border:0;display:block}
@@ -337,16 +339,16 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     <div class="module-external alianzas-layout">
       <div class="module-ext-content alianzas-intro">
         <h4 class="module-ext-title">Paso a <em>Paso</em></h4>
-        <ol class="alianzas-steps">
-          <li>Elegid el modelo</li>
-          <li>El color de oro</li>
-          <li>Definid el acabado</li>
-          <li>Escoged el ancho</li>
-          <li>Escoged el alto</li>
-          <li>Decidid si poner diamantes</li>
-          <li>La talla</li>
-          <li>Pureza 18kt o 9kt</li>
-        </ol>
+        <div class="alianzas-steps">
+          <div class="step-v"><div class="step-number">01</div><h3 class="step-title">Elegid el modelo</h3></div>
+          <div class="step-v"><div class="step-number">02</div><h3 class="step-title">El color de oro</h3></div>
+          <div class="step-v"><div class="step-number">03</div><h3 class="step-title">Definid el acabado</h3></div>
+          <div class="step-v"><div class="step-number">04</div><h3 class="step-title">Escoged el ancho</h3></div>
+          <div class="step-v"><div class="step-number">05</div><h3 class="step-title">Escoged el alto</h3></div>
+          <div class="step-v"><div class="step-number">06</div><h3 class="step-title">Decidid si poner diamantes</h3></div>
+          <div class="step-v"><div class="step-number">07</div><h3 class="step-title">La talla</h3></div>
+          <div class="step-v"><div class="step-number">08</div><h3 class="step-title">Pureza 18kt o 9kt</h3></div>
+        </div>
         <div class="alianzas-notes">
           <p>El botón «Tu Alianza» resume las características de lo escogido. Guárdalo para tenerlo de referencia para tu visita o puedes enviarnos una captura de ese resumen al hacer tu encargo.</p>
           <p>El PVP es de referencia. El precio del metal fluctúa, así que el importe final puede variar en el momento del encargo. Precio por unidad.</p>
