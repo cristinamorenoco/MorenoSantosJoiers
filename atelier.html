@@ -173,7 +173,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 
 /* Slider alianzas (módulo 03) */
 .ring-slider{padding:0;justify-content:center;align-items:center;min-height:0}
-.ring-slider-frame{position:relative;width:100%;max-width:560px;height:440px}
+.ring-slider-frame{position:relative;width:100%;max-width:768px;height:520px}
 .ring-slider-track{position:absolute;inset:0}
 .ring-slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .4s ease}
 .ring-slide.is-active{opacity:1}
@@ -188,7 +188,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .ring-slider-dots button.is-active{background:var(--lilac);transform:scale(1.3)}
 @media(max-width:768px){.ring-slider-frame{height:380px}}
 @media(prefers-reduced-motion:reduce){.ring-slide,.ring-slider-btn,.ring-slider-dots button{transition:none}}
-.alianzas-layout{grid-template-columns:2fr 3fr}
+.alianzas-layout{grid-template-columns:1fr 1.25fr 1fr}
 @media(max-width:768px){.alianzas-layout{grid-template-columns:1fr}}
 </style>
 </head>
@@ -344,19 +344,13 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
       <p class="module-desc">Miles de combinaciones de metal, acabado, grabado y piedras. Diseñadas por vosotros, creadas por nuestros artesanos.</p>
     </div>
     <div class="module-external alianzas-layout">
-      <div class="module-ext-visual ring-slider" style="background:#fdf4f8" aria-roledescription="carrusel" aria-label="Modelos de alianzas de boda">
-        <div class="ring-slider-frame">
-        <div class="ring-slider-track">
-          <figure class="ring-slide is-active"><img src="img/atelier/alianzas-redondas-oro.webp" alt="Alianza de oro amarillo, perfil redondeado, cinco anchos" width="768" height="1365" loading="eager"></figure>
-          <figure class="ring-slide"><img src="img/atelier/alianzas-redondas-plata.webp" alt="Alianza de plata, perfil redondeado, cinco anchos" width="768" height="1365" loading="lazy"></figure>
-          <figure class="ring-slide"><img src="img/atelier/alianzas-planas-oro.webp" alt="Alianza de oro amarillo, perfil plano, cinco anchos" width="768" height="1365" loading="lazy"></figure>
-          <figure class="ring-slide"><img src="img/atelier/alianzas-planas-plata.webp" alt="Alianza de plata, perfil plano, cinco anchos" width="768" height="1365" loading="lazy"></figure>
+      <div class="module-ext-visual" style="background:radial-gradient(ellipse at 70% 40%,#f5e8ee,#fdf4f8 60%,#f0e4ee)">
+        <div class="module-ext-rings">
+          <div class="ext-ring" style="width:120px;height:120px;border:8px solid #c9a96e;border-radius:50%"></div>
+          <div class="ext-ring" style="width:88px;height:88px;border:6px solid #b48fc8;border-radius:50%"></div>
+          <div class="ext-ring" style="width:58px;height:58px;border:5px solid #d4b8e8;border-radius:50%"></div>
         </div>
-        <button type="button" class="ring-slider-btn prev" aria-label="Modelo anterior">&#8249;</button>
-        <button type="button" class="ring-slider-btn next" aria-label="Modelo siguiente">&#8250;</button>
-        <p class="module-ext-label ring-slider-label">Classic · Trend · Fusion · Personal · Luxury</p>
-        <div class="ring-slider-dots"><button type="button" class="is-active" aria-label="Ver modelo 1 de 4"></button><button type="button" class="" aria-label="Ver modelo 2 de 4"></button><button type="button" class="" aria-label="Ver modelo 3 de 4"></button><button type="button" class="" aria-label="Ver modelo 4 de 4"></button></div>
-        </div>
+        <p class="module-ext-label">Classic · Trend · Fusion · Personal · Luxury</p>
       </div>
       <div class="module-ext-content">
         <h4 class="module-ext-title">Configura vuestras <em>alianzas de boda</em></h4>
@@ -371,6 +365,21 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
           Diseñar nuestras alianzas <span>↗</span>
         </a>
       </div>
+      <div class="module-ext-visual ring-slider" style="background:#fdf4f8" aria-roledescription="carrusel" aria-label="Modelos de alianzas de boda">
+        <div class="ring-slider-frame">
+        <div class="ring-slider-track">
+          <figure class="ring-slide is-active"><img src="img/atelier/alianzas-redondas-oro.webp" alt="Alianza de oro amarillo, perfil redondeado, cinco anchos" width="768" height="1365" loading="eager"></figure>
+          <figure class="ring-slide"><img src="img/atelier/alianzas-redondas-plata.webp" alt="Alianza de plata, perfil redondeado, cinco anchos" width="768" height="1365" loading="lazy"></figure>
+          <figure class="ring-slide"><img src="img/atelier/alianzas-planas-oro.webp" alt="Alianza de oro amarillo, perfil plano, cinco anchos" width="768" height="1365" loading="lazy"></figure>
+          <figure class="ring-slide"><img src="img/atelier/alianzas-planas-plata.webp" alt="Alianza de plata, perfil plano, cinco anchos" width="768" height="1365" loading="lazy"></figure>
+        </div>
+        <button type="button" class="ring-slider-btn prev" aria-label="Modelo anterior">&#8249;</button>
+        <button type="button" class="ring-slider-btn next" aria-label="Modelo siguiente">&#8250;</button>
+        <p class="module-ext-label ring-slider-label">Classic · Trend · Fusion · Personal · Luxury</p>
+        <div class="ring-slider-dots"><button type="button" class="is-active" aria-label="Ver modelo 1 de 4"></button><button type="button" class="" aria-label="Ver modelo 2 de 4"></button><button type="button" class="" aria-label="Ver modelo 3 de 4"></button><button type="button" class="" aria-label="Ver modelo 4 de 4"></button></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
