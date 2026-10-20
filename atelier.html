@@ -186,6 +186,28 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .alianzas-config{padding:0;overflow:hidden;border-left:1px solid var(--border);position:relative;min-height:720px;background:#fff}
 .alianzas-config iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 @media(max-width:768px){.alianzas-layout{grid-template-columns:1fr}.alianzas-intro{padding:2.5rem 1.5rem}.alianzas-config{border-left:none;border-top:1px solid var(--border)}.alianzas-config{min-height:620px}}
+
+/* ── Añadido: nota de paso, títulos con énfasis y formulario de Encargo ── */
+.step-title em{font-style:italic;color:var(--lilac)}
+.step-note{display:inline-block;margin-top:1rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lilac);border:1px solid var(--lilac-pale);padding:.4rem 1rem}
+.section-form{padding:8rem 5rem;background:var(--white);display:grid;grid-template-columns:1fr 1.2fr;gap:8rem;align-items:start}
+.form-intro .section-title{margin-bottom:1.5rem}
+.form-intro-text{font-size:.82rem;line-height:2;color:var(--ink-light);margin-bottom:2rem}
+.form-promise{border-left:2px solid var(--lilac-pale);padding-left:1.5rem;margin-top:2rem}
+.form-promise p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ink-mid);line-height:1.7}
+.form-promise cite{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lilac);margin-top:.5rem;font-style:normal}
+.encargo-form{display:flex;flex-direction:column;gap:1.5rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group label{font-size:.6rem;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-light)}
+.form-group input,.form-group select,.form-group textarea{padding:1rem 1.2rem;border:1px solid var(--border);background:var(--off-white);font-family:'Jost',sans-serif;font-size:.8rem;font-weight:300;color:var(--ink);outline:none;transition:border-color .3s;resize:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--lilac)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--ink-light)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.form-submit{padding:1.1rem 3rem;background:var(--ink);color:var(--white);border:none;font-family:'Jost',sans-serif;font-size:.65rem;font-weight:400;letter-spacing:.28em;text-transform:uppercase;transition:background .3s,transform .3s;align-self:flex-start;margin-top:.5rem;cursor:pointer}
+.form-submit:hover{background:var(--lilac);transform:translateY(-2px)}
+.form-note{font-size:.65rem;color:var(--ink-light);line-height:1.7;margin-top:.5rem}
+@media(max-width:1024px){.section-form{padding:6rem 2.5rem;gap:5rem}}
+@media(max-width:768px){.section-form{grid-template-columns:1fr;gap:4rem;padding:5rem 1.5rem}.form-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -222,30 +244,32 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
   </div>
 </section>
 
-<!-- Process -->
+<!-- Process (textos de "Cómo funciona un encargo personal") -->
 <section class="section-process">
   <div class="section-header reveal">
-    <p class="section-label">Nuestro proceso</p>
-    <h2 class="section-title">Del boceto a la <em>joya perfecta</em></h2>
+    <p class="section-label">El proceso</p>
+    <h2 class="section-title">Cómo funciona<br>un <em>encargo personal</em></h2>
   </div>
   <div class="process-steps">
     <div class="step reveal">
       <div class="step-img" style="background:linear-gradient(160deg,#f7f2fc,#ede0f5)">
-        <img src="proceso-boceto.jpg" alt="Diseño y boceto" onerror="this.style.display='none'">
+        <img src="proceso-boceto.jpg" alt="Primera consulta" onerror="this.style.display='none'">
         <span class="step-img-placeholder">✏</span>
       </div>
       <div class="step-number">01</div>
-      <h3 class="step-title">Diseño & Boceto</h3>
-      <p class="step-desc">Todo comienza con una conversación. Escuchamos tu visión y la traducimos a trazos únicos, hasta que la forma te emocione.</p>
+      <h3 class="step-title">Primera <em>consulta</em></h3>
+      <p class="step-desc">Nos reunimos en el atelier o por videollamada. Cuéntanos tu historia, la ocasión, el presupuesto y lo que imaginas. No necesitas saber de joyería — solo necesitas tener algo que quieras expresar.</p>
+      <span class="step-note">Gratuita · Sin compromiso</span>
     </div>
     <div class="step reveal rd1">
       <div class="step-img" style="background:linear-gradient(160deg,#f0f4fd,#e8eef8)">
-        <img src="proceso-materiales.jpg" alt="Selección de materiales" onerror="this.style.display='none'">
+        <img src="proceso-materiales.jpg" alt="Propuesta de diseño" onerror="this.style.display='none'">
         <span class="step-img-placeholder">◈</span>
       </div>
       <div class="step-number">02</div>
-      <h3 class="step-title">Selección de materiales</h3>
-      <p class="step-desc">Elegimos cada metal y cada gema personalmente. Solo trabajamos con proveedores de trazabilidad certificada y origen ético.</p>
+      <h3 class="step-title">Propuesta de <em>diseño</em></h3>
+      <p class="step-desc">Nuestro equipo prepara 2-3 bocetos exclusivos para ti, con selección de materiales, gemas y acabados. Los presentamos en persona con muestras físicas.</p>
+      <span class="step-note">En 5-7 días laborables</span>
     </div>
     <div class="step reveal rd2">
       <div class="step-img" style="background:linear-gradient(160deg,#fdf4f8,#f5e8ee)">
@@ -253,114 +277,99 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
         <span class="step-img-placeholder">⚒</span>
       </div>
       <div class="step-number">03</div>
-      <h3 class="step-title">Elaboración artesanal</h3>
-      <p class="step-desc">En nuestro atelier, el orfebre trabaja cada pieza a mano, respetando los tiempos que exige la excelencia. Sin atajos.</p>
+      <h3 class="step-title"><em>Elaboración</em> artesanal</h3>
+      <p class="step-desc">Una vez aprobado el diseño, comienza la creación. Te mantenemos informado con fotos del proceso en cada etapa, para que veas cómo nace tu joya.</p>
+      <span class="step-note">3-6 semanas · Según complejidad</span>
     </div>
     <div class="step reveal rd3">
       <div class="step-img" style="background:linear-gradient(160deg,#f8f4fd,#ede0f8)">
-        <img src="proceso-entrega.jpg" alt="Entrega y garantía" onerror="this.style.display='none'">
+        <img src="proceso-entrega.jpg" alt="Entrega y celebración" onerror="this.style.display='none'">
         <span class="step-img-placeholder">◇</span>
       </div>
       <div class="step-number">04</div>
-      <h3 class="step-title">Entrega & Garantía</h3>
-      <p class="step-desc">Cada joya se entrega con certificado de autenticidad y garantía vitalicia de mantenimiento. Es tuya para siempre.</p>
+      <h3 class="step-title">Entrega &amp; <em>celebración</em></h3>
+      <p class="step-desc">La entrega se realiza en el atelier, con una presentación especial. Incluye certificado de autenticidad, caja artesanal y garantía vitalicia de mantenimiento.</p>
+      <span class="step-note">Envío internacional disponible</span>
     </div>
   </div>
 </section>
 
-<!-- ─── MÓDULOS INTERACTIVOS ─── -->
-<section class="section-modules">
-  <div class="modules-intro reveal">
-    <p class="section-label">Experiencias interactivas</p>
-    <h2 class="section-title">Diseña tu joya<br><em>antes de crearla</em></h2>
-    <p style="font-size:.82rem;line-height:2;color:var(--ink-light);margin-top:1rem">Herramientas exclusivas para que explores, visualices y personalices tu próxima pieza antes de dar el primer paso con nuestros artesanos.</p>
-  </div>
 
-  <!-- MÓDULO 1: Selección de piedras — Loupe360 -->
-  <div class="module-block reveal">
-    <div class="module-header">
-      <div class="module-num">01</div>
-      <div class="module-meta">
-        <p class="module-tag">Diamantes certificados</p>
-        <h3 class="module-name">Elige tu <em>diamante</em></h3>
-      </div>
-      <p class="module-desc">Explora nuestra selección de diamantes certificados. Compara talla, color, pureza y quilataje antes de decidir.</p>
-    </div>
-    <div class="module-external">
-      <div class="module-ext-visual" style="background:radial-gradient(ellipse at 30% 40%,#e8d4f5,#f7f2fc 60%,#ede0f5)">
-        <div class="module-ext-gems">
-          <span style="background:radial-gradient(circle at 30% 30%,#fff,#e8e8f0 40%,#c0c0d0 70%,#9090b0);width:70px;height:70px"></span>
-          <span style="background:radial-gradient(circle at 30% 30%,#fff,#eeeef5 40%,#c8c8dc 70%,#9898b8);width:52px;height:52px"></span>
-          <span style="background:radial-gradient(circle at 30% 30%,#fff,#f0f0f8 40%,#d0d0e0 70%,#a8a8c0);width:40px;height:40px"></span>
-        </div>
-        <p class="module-ext-label">Round · Princess · Oval · Cushion · Emerald</p>
-      </div>
-      <div class="module-ext-content">
-        <h4 class="module-ext-title">Nuestros <em>diamantes en 360°</em></h4>
-        <p class="module-ext-desc">Accede a nuestra plataforma exclusiva donde podrás explorar cada diamante en detalle — certificación GIA, talla, color y pureza. Una experiencia visual única antes de tomar tu decisión.</p>
-        <ul class="module-ext-features">
-          <li>◈ Visualización en 360° de cada diamante</li>
-          <li>◈ Certificación GIA garantizada</li>
-          <li>◈ Comparación de tallas y quilatajes</li>
-          <li>◈ Selección directa para tu encargo</li>
-        </ul>
-        <a href="https://loupe360.com/auth?u=morenosantosjoiers@gmail.com&token=dcc8626dd6763032c0746d481006904a05d3ef33968e11bc068917ca0588e99dd51c44ac876947829fda4b0097c583028b9a2875b220a7523169a98bbf04047b" target="_blank" rel="noopener" class="module-ext-btn">
-          Explorar piedras preciosas <span>↗</span>
-        </a>
-      </div>
+<!-- Form -->
+<section id="form" class="section-form">
+  <div class="form-intro reveal">
+    <p class="section-label">Cuéntanos tu idea</p>
+    <h2 class="section-title">Empieza a<br><em>soñar</em> tu joya</h2>
+    <p class="form-intro-text">Rellena el formulario y uno de nuestros diseñadores te contactará en menos de 24 horas para agendar tu consulta inicial, completamente gratuita.</p>
+    <div class="form-promise">
+      <p>"Cada encargo que entra en nuestro taller lleva consigo una historia única. Ese es el verdadero privilegio de este oficio."</p>
+      <cite>— Jose Antonio, Propietario</cite>
+      
     </div>
   </div>
-
-  <!-- MÓDULO 2: Diseño de anillos compromiso (próximamente) -->
-  <div class="module-block reveal">
-    <div class="module-header">
-      <div class="module-num">02</div>
-      <div class="module-meta">
-        <p class="module-tag">Próximamente</p>
-        <h3 class="module-name">Diseña tu <em>anillo de compromiso</em></h3>
+  <form class="encargo-form reveal rd1" onsubmit="return false">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" placeholder="Tu nombre">
       </div>
-      <p class="module-desc">Configura el metal, la talla y la piedra de tu anillo y visualízalo en 3D antes de encargar tu pieza única.</p>
-    </div>
-    <div class="module-coming">
-      <span class="module-coming-icon">◈</span>
-      <h4 class="module-coming-title">Configurador de <em>anillos de compromiso</em></h4>
-      <p class="module-coming-text">Estamos integrando un módulo para que puedas diseñar el anillo de compromiso perfecto desde casa. Elige el metal, la talla del diamante, el tipo de engaste y el acabado — todo en tiempo real.</p>
-      <span class="module-badge">Disponible próximamente</span>
-    </div>
-  </div>
-
-  <!-- MÓDULO 3: Configurador de alianzas — Duoo -->
-  <div class="module-block reveal">
-    <div class="module-header">
-      <div class="module-num">03</div>
-      <div class="module-meta">
-        <p class="module-tag">Alianzas de boda</p>
-        <h3 class="module-name">Configura vuestras <em>alianzas de boda</em></h3>
+      <div class="form-group">
+        <label>Apellidos</label>
+        <input type="text" placeholder="Tus apellidos">
       </div>
     </div>
-    <div class="module-external alianzas-layout">
-      <div class="module-ext-content alianzas-intro">
-        <h4 class="module-ext-title">Paso a <em>Paso</em></h4>
-        <div class="alianzas-steps">
-          <div class="step-v"><div class="step-number">01</div><div class="step-text"><h3 class="step-title">Modelo/Forma</h3><p class="step-desc">Elegid la forma del perfil: media caña, ovalada, plana y otras variantes.</p></div></div>
-          <div class="step-v"><div class="step-number">02</div><div class="step-text"><h3 class="step-title">Color oro</h3><p class="step-desc">Oro amarillo, blanco o rosa, según vuestro gusto.</p></div></div>
-          <div class="step-v"><div class="step-number">03</div><div class="step-text"><h3 class="step-title">Acabado</h3><p class="step-desc">Pulido, satinado, diamantado o estriado.</p></div></div>
-          <div class="step-v"><div class="step-number">04</div><div class="step-text"><h3 class="step-title">Anchura</h3><p class="step-desc">Ancho de la alianza, desde 2 mm hasta 4,5 mm.</p></div></div>
-          <div class="step-v"><div class="step-number">05</div><div class="step-text"><h3 class="step-title">Grosor</h3><p class="step-desc">Standard, medium o premium, según la comodidad que busquéis.</p></div></div>
-          <div class="step-v"><div class="step-number">06</div><div class="step-text"><h3 class="step-title">Diamantes</h3><p class="step-desc">Opcional: elegid si queréis piedras engastadas y cuántas. En tienda podemos jugar con la disposición.</p></div></div>
-          <div class="step-v"><div class="step-number">07</div><div class="step-text"><h3 class="step-title">Talla</h3><p class="step-desc">Vuestra talla de anillo, si dudáis en la tienda os confirmamos.</p></div></div>
-          <div class="step-v"><div class="step-number">08</div><div class="step-text"><h3 class="step-title">Tu alianza</h3><p class="step-desc">Elegid si preferís 18kt o 9kts para vuestra alianza.</p></div></div>
-        </div>
-        <div class="alianzas-notes">
-          <p>Al finalizar, aparecerá el botón «Tu Alianza» que resume las características de lo escogido. Guardadlo para tenerlo de referencia para vuestra visita o podéis enviarnos una captura de ese resumen al hacer el encargo.</p>
-          <p>El PVP es de referencia. El precio del metal fluctúa, así que el importe final puede variar en el momento del encargo. Precio por unidad.</p>
-        </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="tu@email.com">
       </div>
-      <div class="module-ext-visual alianzas-config">
-        <iframe src="https://shop.duoo.es/configurador.aspx" title="Configurador de alianzas de boda" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" placeholder="+34 000 000 000">
       </div>
     </div>
-  </div>
+    <div class="form-group">
+      <label>Tipo de pieza</label>
+      <select>
+        <option value="">Selecciona una opción</option>
+        <optgroup label="─ Encargo de joya nueva ─">
+          <option>Anillo de compromiso</option>
+          <option>Alianza de boda</option>
+          <option>Collar / Colgante</option>
+          <option>Pendientes</option>
+          <option>Pulsera</option>
+          <option>Otra pieza nueva</option>
+        </optgroup>
+        <optgroup label="─ Reparación y restauración ─">
+          <option>Reparación de joyería</option>
+          <option>Restauración de joya antigua</option>
+          <option>Reparación de relojería</option>
+          <option>Restauración de reloj vintage</option>
+        </optgroup>
+        <optgroup label="─ Grabado ─">
+          <option>Grabado en joya</option>
+          <option>Grabado en alianza</option>
+          <option>Grabado en reloj</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Presupuesto aproximado</label>
+      <select>
+        <option value="">Selecciona un rango</option>
+        <option>500 – 2.000 €</option>
+        <option>2.000 – 5.000 €</option>
+        <option>5.000 – 10.000 €</option>
+        <option>Más de 10.000 €</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Cuéntanos tu idea</label>
+      <textarea rows="5" placeholder="Describe la ocasión, el estilo que imaginas, materiales que te gustan, o cualquier detalle que nos ayude a entender tu visión..."></textarea>
+    </div>
+    <button type="submit" class="form-submit">Enviar solicitud</button>
+    <p class="form-note">Nos pondremos en contacto contigo en menos de 24h. La consulta inicial es completamente gratuita y sin compromiso.</p>
+  </form>
 </section>
 
 <footer>
