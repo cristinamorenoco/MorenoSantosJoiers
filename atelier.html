@@ -189,8 +189,8 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 @media(max-width:768px){.ring-slider-frame{height:380px}}
 @media(prefers-reduced-motion:reduce){.ring-slide,.ring-slider-btn,.ring-slider-dots button{transition:none}}
 .alianzas-layout{grid-template-columns:1fr 1.25fr 1fr}
-.alianzas-config{padding:2rem}
-.alianzas-config img{width:100%;height:auto;display:block}
+.alianzas-config{padding:0;position:relative;min-height:520px;overflow:hidden}
+.alianzas-config img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 @media(max-width:768px){.alianzas-layout{grid-template-columns:1fr}}
 </style>
 </head>
