@@ -175,15 +175,17 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .alianzas-layout{grid-template-columns:minmax(0,1fr) minmax(0,720px);align-items:stretch}
 .alianzas-intro{border-left:none;padding:3.5rem 3.5rem 3rem;justify-content:flex-start}
 .alianzas-intro .module-ext-title{margin-bottom:2rem}
-.alianzas-steps{position:relative;display:flex;flex-direction:column;gap:1.4rem;margin:0 0 2.5rem}
+.alianzas-steps{position:relative;display:flex;flex-direction:column;gap:1.3rem;margin:0 0 2.5rem}
 .alianzas-steps::before{content:'';position:absolute;left:1.5rem;top:1.5rem;bottom:1.5rem;width:1px;background:linear-gradient(to bottom,var(--lilac-pale),var(--border))}
-.step-v{position:relative;display:flex;align-items:center;gap:1.4rem}
+.step-v{position:relative;display:flex;align-items:flex-start;gap:1.4rem}
 .alianzas-steps .step-number{width:3rem;height:3rem;margin:0;flex-shrink:0;font-size:1rem}
-.alianzas-steps .step-title{margin:0;font-size:1.15rem}
+.alianzas-steps .step-text{padding-top:.3rem}
+.alianzas-steps .step-title{margin:0 0 .25rem;font-size:1.15rem}
+.alianzas-steps .step-desc{font-size:.8rem;line-height:1.7}
 .alianzas-notes p{font-size:.9rem;line-height:1.8;color:var(--ink-light);margin-bottom:1rem}
-.alianzas-config{padding:0;overflow:hidden;border-left:1px solid var(--border)}
-.alianzas-config iframe{width:100%;height:720px;border:0;display:block}
-@media(max-width:768px){.alianzas-layout{grid-template-columns:1fr}.alianzas-intro{padding:2.5rem 1.5rem}.alianzas-config{border-left:none;border-top:1px solid var(--border)}.alianzas-config iframe{height:620px}}
+.alianzas-config{padding:0;overflow:hidden;border-left:1px solid var(--border);position:relative;min-height:720px;background:#fff}
+.alianzas-config iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+@media(max-width:768px){.alianzas-layout{grid-template-columns:1fr}.alianzas-intro{padding:2.5rem 1.5rem}.alianzas-config{border-left:none;border-top:1px solid var(--border)}.alianzas-config{min-height:620px}}
 </style>
 </head>
 <body>
@@ -340,14 +342,14 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
       <div class="module-ext-content alianzas-intro">
         <h4 class="module-ext-title">Paso a <em>Paso</em></h4>
         <div class="alianzas-steps">
-          <div class="step-v"><div class="step-number">01</div><h3 class="step-title">Elegid el modelo</h3></div>
-          <div class="step-v"><div class="step-number">02</div><h3 class="step-title">El color de oro</h3></div>
-          <div class="step-v"><div class="step-number">03</div><h3 class="step-title">Definid el acabado</h3></div>
-          <div class="step-v"><div class="step-number">04</div><h3 class="step-title">Escoged el ancho</h3></div>
-          <div class="step-v"><div class="step-number">05</div><h3 class="step-title">Escoged el alto</h3></div>
-          <div class="step-v"><div class="step-number">06</div><h3 class="step-title">Decidid si poner diamantes</h3></div>
-          <div class="step-v"><div class="step-number">07</div><h3 class="step-title">La talla</h3></div>
-          <div class="step-v"><div class="step-number">08</div><h3 class="step-title">Pureza 18kt o 9kt</h3></div>
+          <div class="step-v"><div class="step-number">01</div><div class="step-text"><h3 class="step-title">Modelo/Forma</h3><p class="step-desc">Elegid la forma del perfil: media caña, ovalada, plana y otras variantes.</p></div></div>
+          <div class="step-v"><div class="step-number">02</div><div class="step-text"><h3 class="step-title">Color oro</h3><p class="step-desc">Oro amarillo, blanco o rosa, según vuestro gusto.</p></div></div>
+          <div class="step-v"><div class="step-number">03</div><div class="step-text"><h3 class="step-title">Acabado</h3><p class="step-desc">Pulido, satinado, diamantado o estriado.</p></div></div>
+          <div class="step-v"><div class="step-number">04</div><div class="step-text"><h3 class="step-title">Anchura</h3><p class="step-desc">Ancho de la alianza, desde 2 mm hasta 4,5 mm.</p></div></div>
+          <div class="step-v"><div class="step-number">05</div><div class="step-text"><h3 class="step-title">Grosor</h3><p class="step-desc">Standard, medium o premium, según la comodidad que busquéis.</p></div></div>
+          <div class="step-v"><div class="step-number">06</div><div class="step-text"><h3 class="step-title">Diamantes</h3><p class="step-desc">Opcional: elegid si queréis piedras engastadas y cuántas.</p></div></div>
+          <div class="step-v"><div class="step-number">07</div><div class="step-text"><h3 class="step-title">Talla</h3><p class="step-desc">Vuestra talla de anillo, en escala europea.</p></div></div>
+          <div class="step-v"><div class="step-number">08</div><div class="step-text"><h3 class="step-title">Tu alianza</h3><p class="step-desc">Resumen final con las características de vuestra alianza y su precio.</p></div></div>
         </div>
         <div class="alianzas-notes">
           <p>El botón «Tu Alianza» resume las características de lo escogido. Guárdalo para tenerlo de referencia para tu visita o puedes enviarnos una captura de ese resumen al hacer tu encargo.</p>
