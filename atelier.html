@@ -208,6 +208,10 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .form-note{font-size:.65rem;color:var(--ink-light);line-height:1.7;margin-top:.5rem}
 @media(max-width:1024px){.section-form{padding:6rem 2.5rem;gap:5rem}}
 @media(max-width:768px){.section-form{grid-template-columns:1fr;gap:4rem;padding:5rem 1.5rem}.form-row{grid-template-columns:1fr}}
+.form-col{display:flex;flex-direction:column;gap:1.5rem}
+.form-success{display:none;padding:2rem;border:1px solid var(--lilac-soft);background:var(--lilac-mist);text-align:center}
+.form-success-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--ink);margin-bottom:.5rem}
+.form-success-text{font-size:.75rem;color:var(--ink-light);line-height:1.8}
 </style>
 </head>
 <body>
@@ -218,6 +222,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
   <ul class="nav-links">
     <!-- Colecciones oculto temporalmente: <li><a href="colecciones.html">Colecciones</a></li> -->
     <li><a href="atelier.html" class="active">Atelier</a></li>
+    <li><a href="boda.html">Boda</a></li>
     <li><a href="encargo.html">Encargo</a></li>
 
     <li><a href="nosotros.html">Nosotros</a></li>
@@ -301,36 +306,39 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     <p class="section-label">Cuéntanos tu idea</p>
     <h2 class="section-title">Empieza a<br><em>soñar</em> tu joya</h2>
     <p class="form-intro-text">Rellena el formulario y uno de nuestros diseñadores te contactará en menos de 24 horas para agendar tu consulta inicial, completamente gratuita.</p>
-    <div class="form-promise">
-      <p>"Cada encargo que entra en nuestro taller lleva consigo una historia única. Ese es el verdadero privilegio de este oficio."</p>
-      <cite>— Jose Antonio, Propietario</cite>
-      
-    </div>
   </div>
-  <form class="encargo-form reveal rd1" onsubmit="return false">
+  <div class="form-col">
+    <div class="form-success" id="successMsg">
+      <h3 class="form-success-title">¡Solicitud recibida! 💜</h3>
+      <p class="form-success-text">Gracias por confiarnos tu idea. Uno de nuestros diseñadores te contactará en menos de 24 horas para agendar tu consulta inicial.</p>
+    </div>
+  <form class="encargo-form reveal rd1" name="atelier-encargo" data-netlify="true" onsubmit="handleEncargo(event)">
+    <input type="hidden" name="form-name" value="atelier-encargo">
+    <input type="hidden" name="subject" value="Nuevo encargo desde Atelier">
+    <input type="hidden" name="origen" value="atelier">
     <div class="form-row">
       <div class="form-group">
         <label>Nombre</label>
-        <input type="text" placeholder="Tu nombre">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
       </div>
       <div class="form-group">
         <label>Apellidos</label>
-        <input type="text" placeholder="Tus apellidos">
+        <input type="text" name="apellidos" placeholder="Tus apellidos">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="tu@email.com">
+        <input type="email" name="email" placeholder="tu@email.com" required>
       </div>
       <div class="form-group">
         <label>Teléfono</label>
-        <input type="tel" placeholder="+34 000 000 000">
+        <input type="tel" name="telefono" placeholder="+34 000 000 000">
       </div>
     </div>
     <div class="form-group">
       <label>Tipo de pieza</label>
-      <select>
+      <select name="tipo_pieza">
         <option value="">Selecciona una opción</option>
         <optgroup label="─ Encargo de joya nueva ─">
           <option>Anillo de compromiso</option>
@@ -355,7 +363,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     </div>
     <div class="form-group">
       <label>Presupuesto aproximado</label>
-      <select>
+      <select name="presupuesto">
         <option value="">Selecciona un rango</option>
         <option>500 – 2.000 €</option>
         <option>2.000 – 5.000 €</option>
@@ -365,11 +373,12 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     </div>
     <div class="form-group">
       <label>Cuéntanos tu idea</label>
-      <textarea rows="5" placeholder="Describe la ocasión, el estilo que imaginas, materiales que te gustan, o cualquier detalle que nos ayude a entender tu visión..."></textarea>
+      <textarea rows="5" name="idea" placeholder="Describe la ocasión, el estilo que imaginas, materiales que te gustan, o cualquier detalle que nos ayude a entender tu visión..."></textarea>
     </div>
     <button type="submit" class="form-submit">Enviar solicitud</button>
     <p class="form-note">Nos pondremos en contacto contigo en menos de 24h. La consulta inicial es completamente gratuita y sin compromiso.</p>
   </form>
+  </div>
 </section>
 
 <footer>
@@ -385,6 +394,20 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const burger=document.getElementById('navBurger'),navMenu=document.querySelector('.nav-links');
 if(burger){burger.addEventListener('click',()=>{const o=navMenu.classList.toggle('open');burger.textContent=o?'✕':'☰';document.body.style.overflow=o?'hidden':''});navMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navMenu.classList.remove('open');burger.textContent='☰';document.body.style.overflow=''}))}
 
+</script>
+<script>
+function handleEncargo(e){
+  e.preventDefault();
+  const form=e.target;
+  const data=new FormData(form);
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
+    .then(()=>{
+      form.style.display='none';
+      document.getElementById('successMsg').style.display='block';
+      gtag('event','generate_lead',{event_category:'formulario',event_label:'encargo_atelier'});
+    })
+    .catch(()=>{alert('Ha habido un error al enviar la solicitud. Escríbenos a morenosantosjoiers@gmail.com');});
+}
 </script>
 <div id="cc-banner" style="display:none">
   <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia y mostrarte publicidad relevante. <a href="privacidad.html#cookies">Política de cookies</a>.</p>
