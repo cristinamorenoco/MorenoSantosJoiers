@@ -271,10 +271,10 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
       <h3 class="form-success-title">¡Solicitud recibida! 💜</h3>
       <p class="form-success-text">Gracias por confiarnos tu idea. Uno de nuestros diseñadores te contactará en menos de 24 horas para agendar tu consulta inicial.</p>
     </div>
-  <form class="encargo-form reveal rd1" name="encargo" data-netlify="true" onsubmit="handleEncargo(event)">
-    <input type="hidden" name="form-name" value="encargo">
+  <form class="encargo-form reveal rd1" name="taller" data-netlify="true" onsubmit="handleEncargo(event)">
+    <input type="hidden" name="form-name" value="taller">
     <input type="hidden" name="subject" value="[TALLER]">
-    <input type="hidden" name="origen" value="encargo">
+    <input type="hidden" name="origen" value="taller">
     <div class="form-row">
       <div class="form-group">
         <label>Nombre</label>
@@ -363,7 +363,7 @@ function handleEncargo(e){
     .then(()=>{
       form.style.display='none';
       document.getElementById('successMsg').style.display='block';
-      gtag('event','generate_lead',{event_category:'formulario',event_label:'encargo'});
+      gtag('event','generate_lead',{event_category:'formulario',event_label:'taller'});
     })
     .catch(()=>{alert('Ha habido un error al enviar la solicitud. Escríbenos a morenosantosjoiers@gmail.com');});
 }
