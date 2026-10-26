@@ -212,6 +212,11 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .form-success{display:none;padding:2rem;border:1px solid var(--lilac-soft);background:var(--lilac-mist);text-align:center}
 .form-success-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--ink);margin-bottom:.5rem}
 .form-success-text{font-size:.75rem;color:var(--ink-light);line-height:1.8}
+.form-again{margin-top:1.2rem;background:none;border:1px solid var(--lilac);color:var(--lilac);padding:.7rem 1.6rem;font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.form-again:hover{background:var(--lilac);color:var(--white)}
+.form-store{margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid var(--lilac-soft)}
+.form-store-label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--lilac)}
+.form-store-address{font-size:.75rem;color:var(--ink-mid);margin-top:.5rem}
 </style>
 </head>
 <body>
@@ -311,6 +316,12 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     <div class="form-success" id="successMsg">
       <h3 class="form-success-title">Hemos recibido tu mensaje</h3>
       <p class="form-success-text">Nos pondremos en contacto contigo lo antes posible.</p>
+      <button type="button" class="form-again" onclick="nuevoFormulario()">Pedir otro formulario</button>
+      <div class="form-store">
+        <p class="form-store-label">Visítanos</p>
+        <p class="form-store-address">Carrer de l'Escorial, 162, Local 2 · 08024 Barcelona</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13609.818081131212!2d2.134239421115351!3d41.39654270880626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498757839510b%3A0x5df0f4f2b25ec92c!2sJoiers%20Moreno%20Santos!5e0!3m2!1ses!2ses!4v1782069674056!5m2!1ses!2ses" width="100%" height="220" style="border:0;margin-top:1rem" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Moreno Santos Joiers"></iframe>
+      </div>
     </div>
   <form class="encargo-form reveal rd1" name="atelier-encargo" data-netlify="true" onsubmit="handleEncargo(event)">
     <input type="hidden" name="form-name" value="atelier-encargo">
@@ -407,6 +418,14 @@ function handleEncargo(e){
       gtag('event','generate_lead',{event_category:'formulario',event_label:'encargo_atelier'});
     })
     .catch(()=>{alert('Ha habido un error al enviar la solicitud. Escríbenos a morenosantosjoiers@gmail.com');});
+}
+</script>
+<script>
+function nuevoFormulario(){
+  var f=document.querySelector('.encargo-form');
+  f.reset(); f.style.display='';
+  document.getElementById('successMsg').style.display='none';
+  f.scrollIntoView({behavior:'smooth',block:'start'});
 }
 </script>
 <div id="cc-banner" style="display:none">
