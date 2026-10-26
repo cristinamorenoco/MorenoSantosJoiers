@@ -71,7 +71,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.8rem 5rem;display:
 .section-services{padding:6rem 5rem;background:var(--lilac-mist)}
 .section-services .section-title{margin-bottom:1.5rem}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:4rem}
-.service-card{background:var(--white);padding:3rem;border:1px solid var(--border);transition:transform .4s,box-shadow .4s;position:relative;overflow:hidden}
+.service-card{background:var(--white);padding:3rem;border:1px solid var(--border);transition:transform .4s,box-shadow .4s;position:relative;overflow:hidden;cursor:pointer}
+.service-card:hover{box-shadow:0 10px 30px rgba(26,21,32,.07)}
 .service-card:hover{transform:translateY(-5px);box-shadow:0 25px 50px rgba(180,143,200,0.12)}
 .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--lilac-pale),var(--lilac));transform:scaleX(0);transform-origin:left;transition:transform .4s}
 .service-card:hover::before{transform:scaleX(1)}
@@ -162,7 +163,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
   <div class="services-grid">
 
     <!-- Reparación Joyería -->
-    <div class="service-card reveal">
+    <div class="service-card reveal" role="link" tabindex="0" onclick="elegirServicio('Reparación de joya')" onkeydown="if(event.key==='Enter')elegirServicio('Reparación de joya')">
       <span class="service-icon">⚒</span>
       <p class="service-tag">Joyería</p>
       <h3 class="service-name">Reparación &<br><em>Restauración</em></h3>
@@ -178,7 +179,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     </div>
 
     <!-- Reparación Relojería -->
-    <div class="service-card reveal rd1">
+    <div class="service-card reveal rd1" role="link" tabindex="0" onclick="elegirServicio('Reparación de relojería')" onkeydown="if(event.key==='Enter')elegirServicio('Reparación de relojería')">
       <span class="service-icon">⌚</span>
       <p class="service-tag">Relojería</p>
       <h3 class="service-name">Reparación &<br><em>Restauración</em></h3>
@@ -195,7 +196,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     </div>
 
     <!-- Grabado -->
-    <div class="service-card reveal rd2">
+    <div class="service-card reveal rd2" role="link" tabindex="0" onclick="elegirServicio('Grabado en joya')" onkeydown="if(event.key==='Enter')elegirServicio('Grabado en joya')">
       <span class="service-icon">✍</span>
       <p class="service-tag">Joyería</p>
       <h3 class="service-name">Grabado<br><em>personalizado</em></h3>
@@ -253,35 +254,11 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
       <label>Tipo de pieza</label>
       <select name="tipo_pieza">
         <option value="">Selecciona una opción</option>
-        <optgroup label="─ Encargo de joya nueva ─">
-          <option>Anillo de compromiso</option>
-          <option>Alianza de boda</option>
-          <option>Collar / Colgante</option>
-          <option>Pendientes</option>
-          <option>Pulsera</option>
-          <option>Otra pieza nueva</option>
-        </optgroup>
-        <optgroup label="─ Reparación y restauración ─">
-          <option>Reparación de joyería</option>
-          <option>Restauración de joya antigua</option>
-          <option>Reparación de relojería</option>
-          <option>Restauración de reloj vintage</option>
-        </optgroup>
-        <optgroup label="─ Grabado ─">
-          <option>Grabado en joya</option>
-          <option>Grabado en alianza</option>
-          <option>Grabado en reloj</option>
-        </optgroup>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Presupuesto aproximado</label>
-      <select name="presupuesto">
-        <option value="">Selecciona un rango</option>
-        <option>500 – 2.000 €</option>
-        <option>2.000 – 5.000 €</option>
-        <option>5.000 – 10.000 €</option>
-        <option>Más de 10.000 €</option>
+        <option>Reparación de joya</option>
+        <option>Restauración de joya antigua</option>
+        <option>Reparación de relojería</option>
+        <option>Grabado en joya</option>
+        <option>Grabado en reloj</option>
       </select>
     </div>
     <div class="form-group">
@@ -320,6 +297,13 @@ function handleEncargo(e){
       gtag('event','generate_lead',{event_category:'formulario',event_label:'taller'});
     })
     .catch(()=>{alert('Ha habido un error al enviar la solicitud. Escríbenos a morenosantosjoiers@gmail.com');});
+}
+</script>
+<script>
+function elegirServicio(tipo){
+  var sel=document.querySelector('select[name="tipo_pieza"]');
+  if(sel) sel.value=tipo;
+  document.getElementById('form').scrollIntoView({behavior:'smooth',block:'start'});
 }
 </script>
 <div id="cc-banner" style="display:none">
