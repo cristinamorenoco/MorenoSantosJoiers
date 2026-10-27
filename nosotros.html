@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Conoce a Moreno Santos, empresa familiar de joyeros artesanos en Barcelona desde 1993. Expertos en joyería de autor, relojería y restauración de piezas antiguas.">
+<meta name="description" content="Conoce Moreno Santos, una empresa familiar de joyeros artesanos en Barcelona desde 1993. Expertos en joyería de autor, relojería y restauración de piezas antiguas.">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -155,9 +155,8 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 
 <!-- Manifesto -->
 <section class="section-manifesto">
-  <p class="manifesto-quote reveal">"Llevamos más de 30 años creando para quienes entienden que el <em>lujo verdadero</em> no es el precio — es la singularidad, la artesanía y el vínculo que une a una persona con su joya para siempre."</p>
+  <p class="manifesto-quote reveal">"Llevamos más de tres décadas dedicados al oficio de la joyería y la relojería en Barcelona. Somos una empresa familiar que ha crecido al lado de quienes entienden que el <em>lujo verdadero</em> no es el precio, sino la singularidad, la artesanía y el vínculo que une a una persona con su joya para siempre."</p>
   <div class="manifesto-divider"></div>
-  <p class="manifesto-author">Manifiesto Moreno Santos</p>
 </section>
 
 <!-- Values -->
@@ -169,22 +168,22 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
   <div class="values-grid">
     <div class="value-card reveal">
       <span class="value-icon">◈</span>
-      <h3 class="value-title"><em>Artesanía</em> sin concesiones</h3>
-      <p class="value-text">Nunca producimos en serie. Cada pieza pasa por las manos del orfebre desde el primer trazo hasta el último pulido. Eso nos hace más lentos — y mucho más buenos.</p>
+      <h3 class="value-title">La <em>paciencia</em> del oficio</h3>
+      <p class="value-text">Huimos de la prisa y de la producción en serie. La verdadera artesanía requiere tiempo, manos expertas y una devoción absoluta por el detalle.</p>
     </div>
     <div class="value-card reveal rd1">
       <span class="value-icon">✦</span>
-      <h3 class="value-title">Materiales de <em>origen ético</em></h3>
-      <p class="value-text">Solo trabajamos con proveedores certificados por el Proceso de Kimberley y estándares de minería responsable. La belleza no puede construirse sobre daño.</p>
+      <h3 class="value-title"><em>Belleza</em> consciente</h3>
+      <p class="value-text">El lujo solo tiene sentido si es ético. Trabajamos con materiales certificados y de primera ley, con gemas y metales procedentes de fuentes respetuosas con las personas y el planeta.</p>
     </div>
     <div class="value-card reveal rd2">
       <span class="value-icon">◇</span>
-      <h3 class="value-title"><em>Transparencia</em> total</h3>
-      <p class="value-text">Te decimos exactamente qué materiales usamos, de dónde vienen y cuánto valen. El precio que pagas es justo: ni un euro de más, ni uno de menos.</p>
+      <h3 class="value-title"><em>Transparencia</em> como valor</h3>
+      <p class="value-text">Transparencia de origen, calidad sin filtros y precios coherentes. Sin artificios: solo la verdad del material y la maestría del diseño.</p>
     </div>
     <div class="value-card reveal rd3">
       <span class="value-icon">⬡</span>
-      <h3 class="value-title">Relación <em>vitalicia</em></h3>
+      <h3 class="value-title">Joyas que <em>permanecen</em></h3>
       <p class="value-text">Cuando compras en Moreno Santos, no cierras una transacción — comienzas una relación. Mantenemos, reparamos y actualizamos tus joyas para siempre.</p>
     </div>
   </div>
@@ -205,7 +204,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 <footer>
   <div class="footer-logo"><img src="images/logo.png" alt="MS" style="height:28px;width:auto;vertical-align:middle;">Moreno Santos</div>
   <div class="footer-links"><a href="https://www.instagram.com/joiersmorenosantos/" target="_blank" rel="noopener">Instagram</a><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="envios.html">Envíos</a><a href="#" onclick="ccSettings();return false">Cookies</a></div>
-  <p class="footer-copy">© 2025 Moreno Santos · Barcelona</p>
+  <p class="footer-copy">© <span id="anio">2026</span> Moreno Santos · Barcelona</p>
 </footer>
 
 <script>
@@ -257,5 +256,6 @@ function ccOpenModal(){var p=localStorage.getItem('ms_cc');var a=false,m=false;i
 function ccCloseModal(){document.getElementById('cc-modal').classList.remove('open');}
 function ccShowBanner(){var b=document.getElementById('cc-banner');b.style.display='flex';if(document.readyState==='complete'){document.body.style.paddingBottom=b.offsetHeight+'px';}else{window.addEventListener('load',function(){document.body.style.paddingBottom=b.offsetHeight+'px';},{once:true});}}function ccSettings(){ccShowBanner();ccOpenModal();}
 </script>
+<script>document.getElementById("anio").textContent=new Date().getFullYear();</script>
 </body>
 </html>
