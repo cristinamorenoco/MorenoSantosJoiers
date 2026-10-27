@@ -607,7 +607,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 <footer>
   <div class="footer-logo"><img src="images/logo.png" alt="MS" style="height:28px;width:auto;vertical-align:middle;">Moreno Santos</div>
   <div class="footer-links"><a href="https://www.instagram.com/joiersmorenosantos/" target="_blank" rel="noopener">Instagram</a><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="envios.html">Envíos</a><a href="#" onclick="ccSettings();return false">Cookies</a></div>
-  <p class="footer-copy">© 2025 Moreno Santos · Barcelona</p>
+  <p class="footer-copy">© <span id="anio">2026</span> Moreno Santos · Barcelona</p>
 </footer>
 
 <!-- Lightbox -->
@@ -877,5 +877,6 @@ function ccOpenModal(){var p=localStorage.getItem('ms_cc');var a=false,m=false;i
 function ccCloseModal(){document.getElementById('cc-modal').classList.remove('open');}
 function ccShowBanner(){var b=document.getElementById('cc-banner');b.style.display='flex';if(document.readyState==='complete'){document.body.style.paddingBottom=b.offsetHeight+'px';}else{window.addEventListener('load',function(){document.body.style.paddingBottom=b.offsetHeight+'px';},{once:true});}}function ccSettings(){ccShowBanner();ccOpenModal();}
 </script>
+<script>document.getElementById("anio").textContent=new Date().getFullYear();</script>
 </body>
 </html>
