@@ -248,6 +248,17 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 @media(max-width:768px){.alianzas-lead{white-space:normal}}
 @media(max-width:1024px){.section-boda{padding:6rem 2.5rem}.section-alianzas{padding:6rem 2.5rem}.boda-hero{padding:8rem 2.5rem 4rem}.anillos-grid{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:768px){.boda-title{white-space:normal}.boda-hero{padding:7rem 1.5rem 3rem}.entry-row{grid-template-columns:1fr;margin:3rem -1.5rem 0}.boda-hero .page-subtitle{margin:3rem auto 0}.entry-half{height:70vh;min-height:380px}.entry-label{left:1.5rem;bottom:1.5rem}.section-boda{padding:5rem 1.5rem}.section-alianzas{padding:5rem 1.5rem}.anillos-grid{grid-template-columns:1fr;gap:3rem}}
+
+/* Móvil: mitades lado a lado y carrusel horizontal de anillos cuadrados */
+@media(max-width:768px){
+  .entry-row{grid-template-columns:1fr 1fr;gap:2px;margin:3rem -1.5rem 0}
+  .entry-half{height:56vh;min-height:340px}
+  .entry-label{left:1rem;right:1rem;bottom:1rem;font-size:.5rem;letter-spacing:.3em;line-height:1.7}
+  .anillos-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;margin:0 -1.5rem;padding:0 1.5rem 1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .anillos-grid::-webkit-scrollbar{display:none}
+  .anillos-grid > .anillo-card{flex:0 0 72%;scroll-snap-align:start}
+  .anillos-grid .carousel{aspect-ratio:1/1}
+}
 </style>
 </head>
 <body>
