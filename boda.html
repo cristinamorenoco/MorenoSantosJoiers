@@ -214,14 +214,18 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .form-success-text{font-size:.75rem;color:var(--ink-light);line-height:1.8}
 
 /* ── Boda ── */
-.boda-hero{padding:9rem 5rem 5rem;background:var(--off-white);border-bottom:1px solid var(--border);text-align:center}
-.entry-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;margin:4.5rem auto 0}
+.boda-hero{padding:8.5rem 5rem 3rem;background:var(--off-white);border-bottom:1px solid var(--border);text-align:center}
+.boda-title{white-space:nowrap}
+.boda-hero .page-subtitle{max-width:640px;margin:1.2rem auto 0}
+.entry-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;margin:2.5rem auto 0}
 .entry-card{display:block;text-decoration:none;color:var(--ink)}
-.entry-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg,#f7f2fc,#ede0f5)}
+.entry-img{position:relative;height:min(46vh,460px);overflow:hidden;background:linear-gradient(160deg,#f7f2fc,#ede0f5)}
+.entry-img::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(26,21,32,.6) 0%,rgba(26,21,32,0) 55%)}
+.entry-overlay{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.8rem 2rem;color:#fff;text-align:left}
 .entry-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
 .entry-card:hover .entry-img img{transform:scale(1.03)}
-.entry-name{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;margin-top:1.4rem;color:var(--ink)}
-.entry-cta{display:inline-block;margin-top:.6rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--lilac)}
+.entry-name{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;margin:0;color:#fff}
+.entry-cta{display:inline-block;margin-top:.6rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:#fff}
 .section-boda{padding:8rem 5rem;background:var(--white)}
 .section-boda .section-header{margin-bottom:4.5rem}
 .anillos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
@@ -241,7 +245,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .section-alianzas{padding:8rem 5rem;background:var(--white)}
 .section-alianzas .section-header{margin-bottom:4.5rem}
 @media(max-width:1024px){.section-boda{padding:6rem 2.5rem}.section-alianzas{padding:6rem 2.5rem}.boda-hero{padding:8rem 2.5rem 4rem}.anillos-grid{grid-template-columns:1fr 1fr;gap:2rem}}
-@media(max-width:768px){.boda-hero{padding:7rem 1.5rem 3rem}.entry-grid{grid-template-columns:1fr;gap:3rem}.section-boda{padding:5rem 1.5rem}.section-alianzas{padding:5rem 1.5rem}.anillos-grid{grid-template-columns:1fr;gap:3rem}}
+@media(max-width:768px){.boda-title{white-space:normal}.entry-img{height:auto;aspect-ratio:4/5}.boda-hero{padding:7rem 1.5rem 3rem}.entry-grid{grid-template-columns:1fr;gap:3rem}.section-boda{padding:5rem 1.5rem}.section-alianzas{padding:5rem 1.5rem}.anillos-grid{grid-template-columns:1fr;gap:3rem}}
 </style>
 </head>
 <body>
@@ -264,18 +268,18 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 <!-- ─── BODA: HOME ─── -->
 <section class="boda-hero">
   <p class="page-eyebrow">Bodas</p>
-  <h1 class="page-title">Tu historia,<br><em>para siempre</em></h1>
-  <p class="page-subtitle">Anillos de compromiso y alianzas de boda diseñados a medida, con la misma atención que ponemos en cada pieza de nuestro atelier.</p>
+  <h1 class="page-title boda-title">Tu historia, <em>para siempre</em></h1>
+  <p class="page-subtitle">Anillos de compromiso y alianzas de boda diseñados a medida. Damos forma a vuestro amor en nuestro atelier para acompañaros en el comienzo de vuestra nueva vida en pareja.</p>
   <div class="entry-grid">
     <a class="entry-card reveal" href="#anillos-compromiso">
-      <div class="entry-img"><img src="images/boda/brillante-1.jpg" alt="Anillos de compromiso" onerror="this.style.display='none'"></div>
-      <h2 class="entry-name">Anillos de compromiso</h2>
-      <span class="entry-cta">Descubrir →</span>
+      <div class="entry-img"><img src="images/boda/brillante-1.jpg" alt="Anillos de compromiso" onerror="this.style.display='none'">
+        <div class="entry-overlay"><h2 class="entry-name">Anillos de compromiso</h2><span class="entry-cta">Descubrir →</span></div>
+      </div>
     </a>
     <a class="entry-card reveal rd1" href="#alianzas-boda">
-      <div class="entry-img"><img src="images/atelier/alianzas-redondas-oro.png" alt="Alianzas de boda" onerror="this.style.display='none'"></div>
-      <h2 class="entry-name">Alianzas de boda</h2>
-      <span class="entry-cta">Descubrir →</span>
+      <div class="entry-img"><img src="images/atelier/alianzas-redondas-oro.png" alt="Alianzas de boda" onerror="this.style.display='none'">
+        <div class="entry-overlay"><h2 class="entry-name">Alianzas de boda</h2><span class="entry-cta">Descubrir →</span></div>
+      </div>
     </a>
   </div>
 </section>
