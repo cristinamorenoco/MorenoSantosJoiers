@@ -254,7 +254,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
   .entry-row{grid-template-columns:1fr 1fr;gap:2px;margin:3rem -1.5rem 0}
   .entry-half{height:56vh;min-height:340px}
   .entry-label{left:1rem;right:1rem;bottom:1rem;font-size:.5rem;letter-spacing:.3em;line-height:1.7}
-  .anillos-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;margin:0 -1.5rem;padding:0 1.5rem 1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .anillos-grid{display:flex;overflow-x:auto;overflow-y:hidden;overscroll-behavior-y:auto;scroll-snap-type:x mandatory;gap:1rem;margin:0 -1.5rem;padding:0 1.5rem 1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .anillos-grid::-webkit-scrollbar{display:none}
   .anillos-grid > .anillo-card{flex:0 0 72%;scroll-snap-align:start}
   .anillos-grid .carousel{aspect-ratio:1/1}
