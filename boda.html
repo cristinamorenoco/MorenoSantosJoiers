@@ -220,12 +220,11 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .entry-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;margin:2.5rem auto 0}
 .entry-card{display:block;text-decoration:none;color:var(--ink)}
 .entry-img{position:relative;height:min(46vh,460px);overflow:hidden;background:linear-gradient(160deg,#f7f2fc,#ede0f5)}
-.entry-img::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(26,21,32,.6) 0%,rgba(26,21,32,0) 55%)}
-.entry-overlay{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.8rem 2rem;color:#fff;text-align:left}
+.entry-overlay{position:absolute;left:1.5rem;bottom:1.5rem;z-index:2;padding:1.1rem 1.6rem;background:rgba(255,255,255,.9);color:var(--ink);text-align:left}
 .entry-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
 .entry-card:hover .entry-img img{transform:scale(1.03)}
-.entry-name{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;margin:0;color:#fff}
-.entry-cta{display:inline-block;margin-top:.6rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:#fff}
+.entry-name{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;margin:0;color:var(--ink)}
+.entry-cta{display:inline-block;margin-top:.6rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--lilac)}
 .section-boda{padding:8rem 5rem;background:var(--white)}
 .section-boda .section-header{margin-bottom:4.5rem}
 .anillos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
@@ -244,6 +243,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .carousel-dot.active{background:var(--lilac)}
 .section-alianzas{padding:8rem 5rem;background:var(--white)}
 .section-alianzas .section-header{margin-bottom:4.5rem}
+.alianzas-lead{font-size:.85rem;line-height:1.9;color:var(--ink-light);max-width:560px;margin-top:1.2rem}
 @media(max-width:1024px){.section-boda{padding:6rem 2.5rem}.section-alianzas{padding:6rem 2.5rem}.boda-hero{padding:8rem 2.5rem 4rem}.anillos-grid{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:768px){.boda-title{white-space:normal}.entry-img{height:auto;aspect-ratio:4/5}.boda-hero{padding:7rem 1.5rem 3rem}.entry-grid{grid-template-columns:1fr;gap:3rem}.section-boda{padding:5rem 1.5rem}.section-alianzas{padding:5rem 1.5rem}.anillos-grid{grid-template-columns:1fr;gap:3rem}}
 </style>
@@ -348,6 +348,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
   <div class="section-header reveal">
     <p class="section-label">Alianzas de boda</p>
     <h2 class="section-title">Alianzas que <em>sellan vuestra historia</em></h2>
+    <p class="alianzas-lead">Configurad vuestras alianzas a medida para haceros una idea de lo que queréis y ver un precio orientativo.</p>
   </div>
   <div class="module-block">
   <div class="module-external alianzas-layout">
