@@ -593,8 +593,9 @@
     display: grid;
     gap: 1px;
   }
-  .brands-grid--jewelry,
   .brands-grid--watches { grid-template-columns: repeat(4, 1fr); }
+  .brands-grid--jewelry { display: flex; flex-wrap: wrap; justify-content: center; }
+  .brands-grid--jewelry .brand-card { flex: 0 0 calc((100% - 3px) / 4); }
   .brand-card {
     background: var(--off-white);
     border: 1px solid var(--border);
@@ -644,11 +645,11 @@
     margin-bottom: 0.5rem; line-height: 1.2;
   }
   .brand-subtitle {
-    font-size: 0.7rem; line-height: 1.65; color: var(--ink-mid);
+    font-size: 0.87rem; line-height: 1.65; color: var(--ink-mid);
     margin-bottom: 0.75rem;
   }
   .brand-material {
-    font-size: 0.52rem; letter-spacing: 0.22em;
+    font-size: 0.69rem; letter-spacing: 0.22em;
     text-transform: uppercase; color: var(--lilac);
   }
 
@@ -863,8 +864,8 @@
     .story-stats { gap: 1.5rem; }
 
     .section-brands { padding: 5rem 1.5rem; }
-    .brands-grid--jewelry,
     .brands-grid--watches { grid-template-columns: repeat(2, 1fr); }
+    .brands-grid--jewelry .brand-card { flex: 0 0 calc((100% - 1px) / 2); }
 
 .section-contact { padding: 5rem 1.5rem; }
     .email-form { max-width: 100%; }
@@ -1172,14 +1173,6 @@
           <p class="brand-name">Bohemme</p>
           <p class="brand-subtitle">Lujo accesible y autenticidad</p>
           <p class="brand-material">Plata · Oro 18 kts</p>
-        </div>
-        <div class="brand-card reveal reveal-delay-2">
-          <div class="brand-img-wrap">
-            <img class="brand-logo" src="images/marcas/leaf.png" alt="Leaf">
-          </div>
-          <p class="brand-name">Leaf</p>
-          <p class="brand-subtitle">Joyería hecha en Portugal</p>
-          <p class="brand-material">Plata · Oro</p>
         </div>
         <div class="brand-card brand-card--soon reveal">
           <div class="brand-img-wrap">
