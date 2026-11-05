@@ -357,6 +357,8 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
           <option>Collar / Colgante</option>
           <option>Pendientes</option>
           <option>Pulsera</option>
+          <option>Anillos</option>
+          <option>Alianzas de boda</option>
           <option>Otra pieza nueva</option>
         </optgroup>
         <optgroup label="─ Reparación y restauración ─">
@@ -419,6 +421,15 @@ function handleEncargo(e){
     })
     .catch(()=>{alert('Ha habido un error al enviar la solicitud. Escríbenos a morenosantosjoiers@gmail.com');});
 }
+</script>
+<script>
+(function(){
+  try{
+    var t=new URLSearchParams(location.search).get('tipo');
+    var sel=document.querySelector('select[name="tipo_pieza"]');
+    if(t&&sel){ sel.value=t; }
+  }catch(e){}
+})();
 </script>
 <script>
 function nuevoFormulario(){
