@@ -135,6 +135,14 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 @media(max-width:768px){nav{padding:1rem 1.5rem;backdrop-filter:none}.nav-burger{display:block}.nav-links{display:none;position:fixed;inset:0;z-index:99;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;list-style:none}.nav-links.open{display:flex}.nav-links a{font-size:.9rem;letter-spacing:.3em}.contact-opening{grid-template-columns:1fr}.opening-left{padding:7rem 1.5rem 3rem}.opening-right{padding:3rem 1.5rem 4rem}.form-row{grid-template-columns:1fr}.section-info{grid-template-columns:1fr;padding:4rem 1.5rem;gap:1.5rem}.social-grid{grid-template-columns:1fr 1fr;gap:1.5rem}.section-social{padding:4rem 1.5rem}footer{padding:2rem 1.5rem;flex-direction:column;text-align:center;gap:1.2rem}.footer-links{flex-wrap:wrap;justify-content:center;gap:1.2rem}}
 /* Cookie consent */
 #cc-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--white);border-top:1px solid var(--border);padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(26,21,32,.07)}#cc-banner p{font-size:.73rem;line-height:1.8;color:var(--ink-mid);flex:1;min-width:200px}#cc-banner a{color:var(--lilac);text-decoration:none}#cc-banner a:hover{text-decoration:underline}.cc-banner-btns{display:flex;gap:.7rem;flex-shrink:0}.cc-btn-primary{background:var(--lilac);color:#fff;border:none;padding:.55rem 1.4rem;font-family:'Jost',sans-serif;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .25s}.cc-btn-primary:hover{background:var(--lilac-soft)}.cc-btn-secondary{background:none;color:var(--ink-mid);border:1px solid var(--border);padding:.55rem 1.4rem;font-family:'Jost',sans-serif;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .25s}.cc-btn-secondary:hover{border-color:var(--ink-light);color:var(--ink)}#cc-modal{display:none;position:fixed;inset:0;z-index:10000;background:rgba(26,21,32,.5);align-items:center;justify-content:center;padding:1.5rem}#cc-modal.open{display:flex}.cc-modal-box{background:var(--white);max-width:580px;width:100%;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative}.cc-modal-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--ink);margin-bottom:.5rem}.cc-modal-intro{font-size:.73rem;line-height:1.9;color:var(--ink-light);margin-bottom:1.8rem}.cc-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--ink-light);line-height:1;padding:.2rem}.cc-close:hover{color:var(--ink)}.cc-category{border-top:1px solid var(--border);padding:1.4rem 0}.cc-cat-header{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem}.cc-cat-label{font-size:.72rem;font-weight:400;letter-spacing:.1em;color:var(--ink);flex:1}.cc-cat-desc{font-size:.7rem;line-height:1.8;color:var(--ink-light)}.cc-toggle{width:1rem;height:1rem;cursor:pointer;accent-color:var(--lilac);flex-shrink:0}.cc-toggle:disabled{cursor:not-allowed;opacity:.4}.cc-modal-footer{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;gap:.7rem;justify-content:flex-end;flex-wrap:wrap}@media(max-width:768px){#cc-banner{padding:1.2rem 1.5rem;flex-direction:column;align-items:flex-start}.cc-banner-btns{width:100%;flex-direction:column}.cc-btn-primary,.cc-btn-secondary{text-align:center;padding:.8rem}.cc-modal-box{padding:1rem}#cc-modal{padding:.5rem}.cc-modal-title{font-size:1.3rem}.cc-modal-intro{font-size:.67rem;line-height:1.6;margin-bottom:.8rem}.cc-category{padding:.65rem 0}.cc-cat-desc{font-size:.65rem;line-height:1.6}.cc-modal-footer{padding-top:.8rem;flex-direction:column}.cc-modal-footer .cc-btn-primary,.cc-modal-footer .cc-btn-secondary{text-align:center}}
+.store-label{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--lilac-soft);margin-bottom:1.2rem;position:relative;z-index:1}
+.store-block{display:flex;flex-direction:column;gap:.8rem;position:relative;z-index:1}
+.store-item{display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:var(--white);text-decoration:none;font-size:.78rem;letter-spacing:.06em;transition:background .3s,border-color .3s}
+.store-item:hover{background:rgba(180,143,200,.06);border-color:rgba(180,143,200,.3)}
+.btn-ig{display:block;text-align:center;margin-top:1.2rem;padding:.9rem 1.5rem;background:var(--lilac);color:var(--white);text-decoration:none;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;position:relative;z-index:1;transition:background .3s}
+.btn-ig:hover{background:var(--lilac-soft)}
+.store-map{margin-top:2rem;position:relative;z-index:1}
+.store-map iframe{display:block;width:100%;height:320px;border:0}
 </style>
 </head>
 <body>
@@ -156,43 +164,21 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 <section class="contact-opening">
   <div class="opening-left">
     <div class="opening-deco">✦</div>
-    <p class="page-eyebrow">Estamos aquí</p>
-    <h1 class="page-title">Hablemos<br>de tu <em>joya</em></h1>
-    <p class="page-subtitle">Sea una pregunta sobre una pieza, un encargo personal o simplemente quieras visitarnos — estaremos encantados de atenderte.</p>
-    <div class="contact-methods">
-      <a href="mailto:morenosantosjoiers@gmail.com" class="contact-method">
-        <div class="contact-method-icon">✉</div>
-        <div class="contact-method-info">
-          <div class="contact-method-label">Email</div>
-          <div class="contact-method-value">morenosantosjoiers@gmail.com</div>
-          <div class="contact-method-sub">Respondemos en menos de 24h</div>
-        </div>
-        <div class="contact-method-arrow">→</div>
-      </a>
-      <a href="tel:+34932190011" class="contact-method">
-        <div class="contact-method-icon">☎</div>
-        <div class="contact-method-info">
-          <div class="contact-method-label">Teléfono</div>
-          <div class="contact-method-value">+34 932 190 011</div>
-          <div class="contact-method-sub">Lun – Sáb · 10:00 – 19:00</div>
-        </div>
-        <div class="contact-method-arrow">→</div>
-      </a>
-      <a href="https://wa.me/34932190011" class="contact-method">
-        <div class="contact-method-icon">◎</div>
-        <div class="contact-method-info">
-          <div class="contact-method-label">WhatsApp</div>
-          <div class="contact-method-value">+34 932 190 011</div>
-          <div class="contact-method-sub">Respuesta rápida · también domingos</div>
-        </div>
-        <div class="contact-method-arrow">→</div>
-      </a>
+    <p class="store-label">Gràcia</p>
+    <div class="store-block">
+      <a href="tel:+34932190011" class="store-item">932 190 011</a>
+      <a href="https://wa.me/34932190011?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20joyas." target="_blank" rel="noopener" class="store-item">WhatsApp</a>
+      <a href="https://maps.app.goo.gl/bC1D8uNK21zT9Ldw9" target="_blank" rel="noopener" class="store-item">Carrer de l'Escorial, 162, Local 2 · Barcelona 08024</a>
+    </div>
+    <a href="https://www.instagram.com/joiersmorenosantos" target="_blank" rel="noopener" class="btn-ig">Síguenos en Instagram</a>
+    <div class="store-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.3357734185897!2d2.156149376465599!3d41.41022929457682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2ba13addcc5%3A0x1fd1036f5b3f0131!2sMoreno%20Santos%20Joiers!5e0!3m2!1ses!2ses!4v1793902859073!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
   </div>
 
   <div class="opening-right">
     <h2 class="form-title">Escríbenos<br>lo que <em>necesitas</em></h2>
-    <p class="form-subtitle">Usaremos tu mensaje para orientarte hacia la persona del equipo que mejor pueda ayudarte.</p>
+    <p class="form-subtitle">Sea una pregunta sobre una pieza, un encargo personal o simplemente quieras visitarnos — estaremos encantados de atenderte.</p>
     <div class="form-success" id="successMsg">
       <h3 class="form-success-title">¡Mensaje recibido! 💜</h3>
       <p class="form-success-text">Gracias por escribirnos. Uno de nuestros joyeros se pondrá en contacto contigo antes de las próximas 24 horas.</p>
@@ -259,19 +245,6 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     </div>
   </div>
 </section>
-
-<!-- Map -->
-<div class="section-map">
-  <div class="map-bg-text">Barcelona</div>
-  <div class="map-pin-area">
-    <h3 class="map-address">Carrer de l'Escorial, 162, Local 2 · <em>Barcelona</em></h3>
-    <p class="map-sub">Gràcia · Metro Joanic (L4) / Fontana (L3)</p>
-    <div class="map-cta">
-      <a href="https://maps.google.com" target="_blank" class="btn-outline">Abrir en Google Maps →</a>
-    </div>
-  </div>
-</div>
-
 
 <footer>
   <div class="footer-logo"><img src="images/logo.png" alt="MS" style="height:28px;width:auto;vertical-align:middle;">Moreno Santos</div>
