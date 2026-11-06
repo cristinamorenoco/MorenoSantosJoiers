@@ -193,10 +193,11 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
   .horarios-list { list-style: none; padding: 0; margin: 0; }
   .horarios-list li {
     display: flex; justify-content: center; align-items: baseline; gap: 1.25rem;
-    padding: 0.2rem 0;
-    font-family: inherit; font-size: 0.95rem; line-height: 1.7; color: var(--ink-mid);
+    padding: 0.1rem 0;
+    font-family: inherit; font-size: 0.95rem; line-height: 1.6; color: var(--ink-mid);
   }
-  .horarios-list li span:last-child { color: var(--ink); }
+  .horarios-list li span { font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; }
+  .horarios-list li + li { margin-top: 0.35rem; }
 .instagram-block {
     margin-top: 3rem;
     display: flex;
@@ -266,7 +267,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     <div class="horarios">
       <p class="map-label">Horario</p>
       <ul class="horarios-list">
-        <li><span>Lunes a viernes</span><span>10:00–14:00 · 16:30–19:30</span></li>
+        <li><span>Lunes a viernes</span><span>10:00–14:00<br>16:30–19:30</span></li>
         <li><span>Sábado</span><span>10:00–13:30</span></li>
       </ul>
     </div>
