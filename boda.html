@@ -506,10 +506,9 @@ function ccShowBanner(){var b=document.getElementById('cc-banner');b.style.displ
       var l=t.querySelector('.entry-label');
       if(!l)return;
       var r=t.getBoundingClientRect();
-      var p=(vh-r.top)/(vh+r.height);
-      p=Math.max(0,Math.min(1,p));
-      var shift=Math.min(r.height*0.3,200);
-      l.style.transform='translateY('+(p*shift).toFixed(1)+'px)';
+      var max=r.height*0.5;
+      var shift=Math.max(0,Math.min(max,(vh-r.top)*0.35));
+      l.style.transform='translateY('+shift.toFixed(1)+'px)';
     });
   }
   function req(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
