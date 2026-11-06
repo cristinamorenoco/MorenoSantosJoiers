@@ -134,6 +134,13 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 .stat-item{padding:1rem 2rem}
 .stat-number{font-size:2.6rem}
 @media(max-width:768px){.values-grid{grid-template-columns:1fr 1fr;gap:2rem 1.25rem}.value-title{font-size:1.1rem}.value-text{font-size:.7rem}.section-qp{grid-template-columns:1fr}.qp-photo img{min-height:60vw}.qp-text{padding:2.5rem 1.5rem}.section-stats{padding:0}.stat-item{padding:1rem}}
+.section-qp{padding:6rem 5rem;gap:3rem}
+.qp-photo{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.qp-frame{border:1px solid var(--lilac);padding:14px}
+.qp-frame img{display:block;height:44vh;width:auto;aspect-ratio:4/5;object-fit:cover}
+.qp-caption{margin-top:1.5rem;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--lilac)}
+.qp-text{padding:0}
+@media(max-width:768px){.section-qp{padding:3rem 1.5rem;gap:2rem}.qp-frame img{height:auto;width:70vw}.qp-text{padding:0}}
 </style>
 </head>
 <body>
@@ -192,7 +199,7 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 
 <!-- Quote + foto histórica -->
 <section class="section-qp">
-  <div class="qp-photo"><img src="images/historia-tienda.png" alt="Tienda histórica de Moreno Santos"></div>
+  <div class="qp-photo"><div class="qp-frame"><img src="images/historia-tienda.png" alt="Tienda histórica de Moreno Santos"></div><p class="qp-caption">Nuestra historia en Barcelona</p></div>
   <div class="qp-text"><p class="manifesto-quote reveal">"Llevamos más de tres décadas dedicados al oficio de la joyería y la relojería en Barcelona.<br>Somos una empresa familiar que ha crecido al lado de quienes entienden que el <em>lujo verdadero</em> no es el precio, sino la singularidad, la artesanía y el vínculo que une a una persona con su joya para siempre."</p></div>
 </section>
 
