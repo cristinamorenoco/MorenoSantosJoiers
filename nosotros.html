@@ -41,14 +41,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.8rem 5rem;display:
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
 
 /* Full-bleed opening */
-.opening{min-height:100vh;display:grid;grid-template-columns:2fr 3fr;padding-top:0}
+.opening{min-height:72vh;display:grid;grid-template-columns:2fr 3fr;padding-top:0}
 .opening-visual{position:relative;background:var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .opening-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(180,143,200,0.12),transparent 60%)}
 .year-bg{position:absolute;font-family:'Cormorant Garamond',serif;font-size:22rem;font-weight:300;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;user-select:none}
 .opening-logo-large{position:relative;z-index:1;text-align:center}
 .opening-logo-large svg{width:160px;height:160px;color:var(--lilac);opacity:.8}
 .opening-logo-large p{font-size:.55rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:2rem}
-.opening-content{display:flex;flex-direction:column;justify-content:center;padding:10rem 5rem 5rem}
+.opening-content{display:flex;flex-direction:column;justify-content:center;padding:7rem 5rem 4rem}
 .page-eyebrow{font-size:.6rem;font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:var(--lilac);margin-bottom:1rem;display:flex;align-items:center;gap:.8rem;animation:fadeUp .9s ease .3s both}
 .page-eyebrow::before{content:'';width:25px;height:1px;background:var(--lilac);opacity:.6}
 .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,5.5rem);font-weight:300;line-height:1.05;color:var(--ink);animation:fadeUp .9s ease .45s both}
