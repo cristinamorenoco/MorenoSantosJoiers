@@ -506,8 +506,9 @@ function ccShowBanner(){var b=document.getElementById('cc-banner');b.style.displ
       var l=t.querySelector('.entry-label');
       if(!l)return;
       var r=t.getBoundingClientRect();
-      var max=r.height*0.5;
-      var shift=Math.max(0,Math.min(max,(vh*0.2-r.top)*0.5));
+      var m=parseFloat(getComputedStyle(l).top)||0;
+      var max=Math.max(0,r.height-2*m-l.offsetHeight);
+      var shift=Math.max(0,Math.min(max,(vh*0.2-r.top)*max/(r.height*0.6)));
       l.style.transform='translateY('+shift.toFixed(1)+'px)';
     });
   }
