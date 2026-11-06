@@ -154,6 +154,42 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
 @media(max-width:768px){.section-qp{flex-direction:column;align-items:stretch;padding:3rem 1.5rem}.qp-photo{flex:none}.qp-frame img{height:auto;width:72vw;margin:0 auto}.qp-text{margin:-3rem 0 0 0;padding:2.5rem 1.5rem}}
 @media(min-width:769px){.section-qp{align-items:flex-start;padding:6rem 5rem 8rem}.qp-text{margin:20vh 0 0 -8rem;padding:4.5rem 5.5rem}}
 @media(min-width:769px){.section-qp{align-items:center;padding:6rem 5rem}.qp-photo{align-self:center}.qp-text{background:transparent;box-shadow:none;margin:0;padding:0 0 0 4rem;border-left:1px solid var(--lilac)}}
+
+/* ===== Nosotros: nueva disposición ===== */
+.np-hero{padding:10rem 5rem 4rem;text-align:center;background:var(--white)}
+.np-label{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--lilac);margin:0 0 1.5rem}
+.np-h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3rem,6vw,5.5rem);line-height:1.05;color:var(--ink);margin:0 0 2rem}
+.np-h1 em,.np-h2 em{color:var(--lilac);font-style:italic}
+.np-lede{max-width:640px;margin:0 auto;font-size:.95rem;line-height:2;color:var(--ink-mid)}
+.np-photo-wide{height:62vh;min-height:360px;overflow:hidden}
+.np-photo-wide img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.np-band{display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:center;padding:7rem 5rem;background:var(--lilac-pale)}
+.np-fig{margin:0}
+.np-fig img{display:block;width:100%;max-width:420px;aspect-ratio:4/5;object-fit:cover;margin:0 auto}
+.np-fig figcaption{text-align:center;margin-top:1.5rem;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-mid)}
+.np-quote{margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1.5;color:var(--ink)}
+.np-quote em{color:var(--lilac)}
+.np-values{padding:7rem 5rem;text-align:center;background:var(--white)}
+.np-h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,3.5vw,3.2rem);color:var(--ink);margin:0}
+.np-values-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:4rem;border-top:1px solid var(--border)}
+.np-value{padding:3rem 2.2rem;border-right:1px solid var(--border);text-align:left}
+.np-value:last-child{border-right:none}
+.np-value h3{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.45rem;color:var(--ink);margin:0 0 1rem;line-height:1.25}
+.np-value h3 em{color:var(--lilac)}
+.np-value p{font-size:.78rem;line-height:2;color:var(--ink-light);margin:0}
+.np-cta{margin-top:4rem}
+@media(max-width:1024px){.np-band{gap:3.5rem;padding:5rem 2.5rem}.np-values{padding:5rem 2.5rem}.np-values-grid{grid-template-columns:repeat(2,1fr)}.np-value:nth-child(2){border-right:none}.np-value:nth-child(-n+2){border-bottom:1px solid var(--border)}}
+@media(max-width:768px){
+ .np-hero{padding:7rem 1.5rem 2.5rem}
+ .np-photo-wide{height:50vh}
+ .np-band{grid-template-columns:1fr;padding:4rem 1.5rem;gap:2.5rem}
+ .np-fig img{max-width:70vw}
+ .np-values{padding:4rem 1.5rem}
+ .np-values-grid{grid-template-columns:1fr 1fr}
+ .np-value{padding:2rem 1.1rem}
+ .np-value h3{font-size:1.15rem}
+ .np-value p{font-size:.7rem}
+}
 </style>
 </head>
 <body>
@@ -172,56 +208,54 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
   <button class="nav-burger" id="navBurger" aria-label="Menú">☰</button>
 </nav>
 
-<section class="opening">
-  <div class="opening-visual">
-    <img src="images/tienda-fachada.png" alt="Fachada de Moreno Santos Joiers, Barcelona" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%">
-  </div>
-  <div class="opening-content">
-    <p class="page-eyebrow">Nuestra historia</p>
-    <h1 class="page-title">Más que joyas,<br><em>legados</em></h1>
-    <p class="opening-text">Moreno Santos nació en 1993 de una convicción familiar: la joyería de verdad no se compra, se elige. Más de 30 años después, cada pieza que creamos sigue llevando consigo una historia, un amor y una intención que trasciende el tiempo.</p>
-  </div>
+<!-- HERO -->
+<section class="np-hero">
+  <p class="np-label">Nuestra historia</p>
+  <h1 class="np-h1">Más que joyas,<br><em>legados</em></h1>
+  <p class="np-lede">Moreno Santos nació en 1993 de una convicción familiar: la joyería de verdad no se compra, se elige. Más de 30 años después, cada pieza que creamos sigue llevando consigo una historia, un amor y una intención que trasciende el tiempo.</p>
+</section>
+<div class="np-photo-wide"><img src="images/tienda-fachada.png" alt="Fachada de Moreno Santos Joiers, Barcelona"></div>
+
+<!-- CITA + FOTO HISTÓRICA -->
+<section class="np-band">
+  <figure class="np-fig">
+    <img src="images/historia-tienda.png" alt="Tienda histórica de Moreno Santos">
+    <figcaption>Nuestra historia en Barcelona</figcaption>
+  </figure>
+  <blockquote class="np-quote">"Llevamos más de tres décadas dedicados al oficio de la joyería y la relojería en Barcelona. Somos una empresa familiar que ha crecido al lado de quienes entienden que el <em>lujo verdadero</em> no es el precio, sino la singularidad, la artesanía y el vínculo que une a una persona con su joya para siempre."</blockquote>
 </section>
 
-<!-- Values -->
-<section class="section-values">
-  <div class="reveal">
-    <p class="section-label">Lo que nos guía</p>
-    <h2 class="section-title">Nuestros <em>valores</em></h2>
-  </div>
-  <div class="values-grid">
-    <div class="value-card value-plain reveal">
-      <h3 class="value-title">La <em>paciencia</em> del oficio</h3>
-      <p class="value-text">Huimos de la prisa y de la producción en serie. La verdadera artesanía requiere tiempo, manos expertas y una devoción absoluta por el detalle.</p>
+<!-- VALORES -->
+<section class="np-values">
+  <p class="np-label">Lo que nos guía</p>
+  <h2 class="np-h2">Nuestros <em>valores</em></h2>
+  <div class="np-values-grid">
+    <div class="np-value">
+      <h3>La <em>paciencia</em> del oficio</h3>
+      <p>Huimos de la prisa y de la producción en serie. La verdadera artesanía requiere tiempo, manos expertas y una devoción absoluta por el detalle.</p>
     </div>
-    <div class="value-card value-plain reveal rd1">
-      <h3 class="value-title"><em>Belleza</em> consciente</h3>
-      <p class="value-text">El lujo solo tiene sentido si es ético. Trabajamos con materiales certificados y de primera ley, con gemas y metales procedentes de fuentes respetuosas con las personas y el planeta.</p>
+    <div class="np-value">
+      <h3><em>Belleza</em> consciente</h3>
+      <p>El lujo solo tiene sentido si es ético. Trabajamos con materiales certificados y de primera ley, con gemas y metales procedentes de fuentes respetuosas con las personas y el planeta.</p>
     </div>
-    <div class="value-card value-plain reveal rd2">
-      <h3 class="value-title"><em>Transparencia</em> como valor</h3>
-      <p class="value-text">Transparencia de origen, calidad sin filtros y precios coherentes. Sin artificios: solo la verdad del material y la maestría del diseño.</p>
+    <div class="np-value">
+      <h3><em>Transparencia</em> como valor</h3>
+      <p>Transparencia de origen, calidad sin filtros y precios coherentes. Sin artificios: solo la verdad del material y la maestría del diseño.</p>
     </div>
-    <div class="value-card value-plain reveal rd3">
-      <h3 class="value-title">Joyas que <em>permanecen</em></h3>
-      <p class="value-text">Cuando compras en Moreno Santos, no cierras una transacción — comienzas una relación. Mantenemos, reparamos y actualizamos tus joyas para siempre.</p>
+    <div class="np-value">
+      <h3>Joyas que <em>permanecen</em></h3>
+      <p>Cuando compras en Moreno Santos, no cierras una transacción — comienzas una relación. Mantenemos, reparamos y actualizamos tus joyas para siempre.</p>
     </div>
   </div>
-  <div class="values-cta reveal" style="text-align:center;margin-top:4rem"><a href="contacto.html" class="btn-dark">Encuéntranos</a></div>
+  <div class="np-cta"><a href="contacto.html" class="btn-dark">Encuéntranos</a></div>
 </section>
 
-<!-- Quote + foto histórica -->
-<section class="section-qp">
-  <div class="qp-photo"><div class="qp-frame"><img src="images/historia-tienda.png" alt="Tienda histórica de Moreno Santos"></div><p class="qp-caption">Nuestra historia en Barcelona</p></div>
-  <div class="qp-text"><p class="manifesto-quote reveal">"Llevamos más de tres décadas dedicados al oficio de la joyería y la relojería en Barcelona.<br>Somos una empresa familiar que ha crecido al lado de quienes entienden que el <em>lujo verdadero</em> no es el precio, sino la singularidad, la artesanía y el vínculo que une a una persona con su joya para siempre."</p></div>
-</section>
-
-<!-- Stats -->
+<!-- BANNER RESUMEN -->
 <section class="section-stats">
-  <div class="stat-item reveal"><div class="stat-number">30+</div><div class="stat-label">Años de historia</div></div>
-  <div class="stat-item reveal rd1"><div class="stat-number" style="font-size:2rem">Familia</div><div class="stat-label">Empresa familiar</div></div>
-  <div class="stat-item reveal rd2"><div class="stat-number">100%</div><div class="stat-label">Taller propio Barcelona</div></div>
-  <div class="stat-item reveal rd3"><div class="stat-number" style="font-size:2rem">Oro 18kt</div><div class="stat-label">Diseños exclusivos</div></div>
+  <div class="stat-item"><div class="stat-number">30+</div><div class="stat-label">Años de historia</div></div>
+  <div class="stat-item"><div class="stat-number" style="font-size:2rem">Familia</div><div class="stat-label">Empresa familiar</div></div>
+  <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Taller propio Barcelona</div></div>
+  <div class="stat-item"><div class="stat-number" style="font-size:2rem">Oro 18kt</div><div class="stat-label">Diseños exclusivos</div></div>
 </section>
 
 <footer>
