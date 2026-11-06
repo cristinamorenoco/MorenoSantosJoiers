@@ -428,7 +428,7 @@
   .piezas-half img ~ .piezas-placeholder { display: none; }
 
   .piezas-label {
-    position: absolute; left: 2.5rem; bottom: 2.5rem; z-index: 3;
+    position: absolute; left: 2.5rem; top: 3rem; z-index: 3;
     font-family: 'Jost', sans-serif;
     font-size: 0.6rem; font-weight: 400;
     letter-spacing: 0.5em; text-transform: uppercase;
@@ -855,7 +855,7 @@
     .piezas-slider { margin: 0 -1.5rem; }
     .piezas-row { grid-template-columns: 1fr; }
     .piezas-half { height: 70vh; min-height: 380px; }
-    .piezas-label { left: 1.5rem; bottom: 1.5rem; font-size: 1.4rem; }
+    .piezas-label { left: 1.5rem; top: 1.5rem; bottom: auto; font-size: 1.4rem; }
     .piezas-grid4 { grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
 
     .section-story { grid-template-columns: 1fr; min-height: unset; }
@@ -1364,15 +1364,17 @@
 
   // Etiquetas flotantes: se desplazan suavemente con el scroll (slider "Piezas que enamoran")
   const piezasLabels = document.querySelectorAll('.piezas-label');
-  if (piezasLabels.length) {
+  if (piezasLabels.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     let ticking = false;
     const updatePiezasParallax = () => {
       const vh = window.innerHeight;
       piezasLabels.forEach(label => {
-        const rect = label.closest('.piezas-half').getBoundingClientRect();
-        const center = rect.top + rect.height / 2;
-        const offset = Math.max(-40, Math.min(40, (center - vh / 2) * 0.08));
-        label.style.transform = `translateY(${offset}px)`;
+        const tile = label.closest('.piezas-half');
+        const r = tile.getBoundingClientRect();
+        const m = parseFloat(getComputedStyle(label).top) || 0;
+        const max = Math.max(0, r.height - 2 * m - label.offsetHeight);
+        const shift = Math.max(0, Math.min(max, (vh * 0.2 - r.top) * max / (r.height * 0.6)));
+        label.style.transform = `translateY(${shift.toFixed(1)}px)`;
       });
       ticking = false;
     };
