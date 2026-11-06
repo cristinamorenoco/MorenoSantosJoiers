@@ -12,3 +12,15 @@
   from = "/encargo.html"
   to = "/taller.html"
   status = 301
+
+# Cabeceras de seguridad (fase inicial). HSTS empieza con 1 día para poder revertirlo;
+# subir max-age y añadir includeSubDomains/preload cuando se confirme que todo va por HTTPS.
+# CSP completa, COOP y Trusted Types quedan fuera: pueden romper GTM, Netlify Forms o el mapa.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=86400"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Content-Security-Policy = "frame-ancestors 'self'"
