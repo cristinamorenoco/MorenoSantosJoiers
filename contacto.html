@@ -194,6 +194,12 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     justify-content: center;
     animation: fadeUp 1s ease 0.95s both;
   }
+
+.form-again{margin-top:1.2rem;background:none;border:1px solid var(--lilac);color:var(--lilac);padding:.7rem 1.6rem;font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.form-again:hover{background:var(--lilac);color:var(--white)}
+.form-store{margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid var(--lilac-soft)}
+.form-store-label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--lilac)}
+.form-store-address{font-size:.75rem;color:var(--ink-mid);margin-top:.5rem}
 </style>
 </head>
 <body>
@@ -254,8 +260,14 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
     <h2 class="form-title">Escríbenos<br>lo que <em>necesitas</em></h2>
     <p class="form-subtitle">Sea una pregunta sobre una pieza, un encargo personal o simplemente quieras visitarnos — estaremos encantados de atenderte.</p>
     <div class="form-success" id="successMsg">
-      <h3 class="form-success-title">¡Mensaje recibido! 💜</h3>
-      <p class="form-success-text">Gracias por escribirnos. Uno de nuestros joyeros se pondrá en contacto contigo antes de las próximas 24 horas.</p>
+      <h3 class="form-success-title">Hemos recibido tu mensaje</h3>
+      <p class="form-success-text">Nos pondremos en contacto contigo lo antes posible.</p>
+      <button type="button" class="form-again" onclick="nuevoFormulario()">Pedir otro formulario</button>
+      <div class="form-store">
+        <p class="form-store-label">Visítanos</p>
+        <p class="form-store-address">Carrer de l'Escorial, 162, Local 2 · 08024 Barcelona</p>
+        <iframe src="https://www.google.com/maps?ll=41.398765,2.143428&z=15&t=m&hl=es&gl=ES&mapclient=embed&cid=6769179563149674796&output=embed" width="100%" height="220" style="border:0;margin-top:1rem" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Moreno Santos Joiers"></iframe>
+      </div>
     </div>
     <form class="contact-form" id="contactForm" name="contacto" data-netlify="true" onsubmit="handleSubmit(event)">
       <input type="hidden" name="form-name" value="contacto">
@@ -321,6 +333,14 @@ function handleSubmit(e) {
     });
 }
 
+</script>
+<script>
+function nuevoFormulario(){
+  var f=document.getElementById('contactForm');
+  f.reset(); f.style.display='';
+  document.getElementById('successMsg').style.display='none';
+  f.scrollIntoView({behavior:'smooth',block:'start'});
+}
 </script>
 <div id="cc-banner" style="display:none">
   <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia y mostrarte publicidad relevante. <a href="privacidad.html#cookies">Política de cookies</a>.</p>
