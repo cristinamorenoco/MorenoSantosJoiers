@@ -42,7 +42,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.8rem 5rem;display:
 
 /* Opening - full screen with contact methods */
 .contact-opening{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:0}
-.opening-left{background:var(--off-white);display:flex;flex-direction:column;justify-content:center;padding:10rem 5rem 5rem;position:relative;overflow:hidden}
+.opening-left{background:var(--off-white);display:flex;flex-direction:column;justify-content:flex-start;padding:10rem 5rem 5rem;position:relative;overflow:hidden}
 .opening-left::before{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(180,143,200,0.07),transparent 60%)}
 .opening-deco{position:absolute;top:50%;right:3rem;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:18rem;font-weight:300;color:rgba(255,255,255,.02);line-height:1;pointer-events:none;user-select:none}
 .page-eyebrow{font-size:.6rem;font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:var(--lilac-soft);margin-bottom:1rem;display:flex;align-items:center;gap:.8rem;animation:fadeUp .9s ease .3s both;position:relative;z-index:1}
@@ -62,7 +62,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.8rem 5rem;display:
 .contact-method:hover .contact-method-arrow{transform:translateX(4px);color:var(--lilac-soft)}
 
 /* Form side */
-.opening-right{background:var(--white);display:flex;flex-direction:column;justify-content:center;padding:10rem 5rem 5rem}
+.opening-right{background:var(--white);display:flex;flex-direction:column;justify-content:flex-start;padding:10rem 5rem 5rem}
 .form-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--ink);margin-bottom:.5rem}
 .form-title em{font-style:italic;color:var(--lilac)}
 .form-subtitle{font-size:.75rem;color:var(--ink-light);margin-bottom:2.5rem;line-height:1.8}
