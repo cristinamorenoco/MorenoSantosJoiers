@@ -190,6 +190,27 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
  .np-value h3{font-size:1.15rem}
  .np-value p{font-size:.7rem}
 }
+
+/* ===== Nosotros: bloque historia con formato home ===== */
+.section-story{padding:0;background:var(--lilac-mist);display:grid;grid-template-columns:auto 1fr;gap:0;align-items:stretch}
+.story-visual{position:relative}
+.story-frame{background:var(--lilac-mist);position:relative;display:flex;align-items:center;justify-content:flex-start;padding:3rem 2rem 3rem 3rem}
+.story-img-wrap{background:var(--off-white);padding:20px;position:relative;display:inline-flex;flex-shrink:0}
+.story-img-wrap::before{content:'';position:absolute;inset:0;border:1px solid var(--border);pointer-events:none}
+.story-badge{position:absolute;bottom:0;right:0;transform:translate(35%,35%);width:75px;height:75px;background:var(--lilac);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.story-badge span:first-child{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--white);line-height:1}
+.story-badge span:last-child{font-size:.4rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.story-content{padding:3.5rem 4rem;display:flex;flex-direction:column;justify-content:center}
+.story-content .section-label{margin-bottom:.5rem}
+.story-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,1.9vw,1.8rem);font-weight:300;line-height:1.5;color:var(--ink);margin:0 0 .5rem}
+.story-title em{font-style:italic;color:var(--lilac)}
+.story-divider{width:40px;height:1px;background:var(--lilac-soft);margin:1.5rem 0 0;opacity:.8}
+@media(max-width:768px){
+ .section-story{grid-template-columns:1fr}
+ .story-frame{justify-content:center;padding:2rem}
+ .story-img-wrap img{height:auto !important;width:100% !important;max-height:380px;object-fit:cover}
+ .story-content{padding:2.5rem 1.5rem}
+}
 </style>
 </head>
 <body>
@@ -214,13 +235,21 @@ footer{padding:3rem 5rem;background:var(--white);border-top:1px solid var(--bord
   <h1 class="np-h1">Más que joyas,<br><em>legados</em></h1>
   <p class="np-lede">Moreno Santos nació en 1993 de una convicción familiar: la joyería de verdad no se compra, se elige. Más de 30 años después, cada pieza que creamos sigue llevando consigo una historia, un amor y una intención que trasciende el tiempo.</p>
 </section>
-<!-- CITA + FOTO HISTÓRICA -->
-<section class="np-band">
-  <figure class="np-fig">
-    <img src="images/historia-tienda.png" alt="Tienda histórica de Moreno Santos">
-    <figcaption>Nuestra historia en Barcelona</figcaption>
-  </figure>
-  <blockquote class="np-quote">"Llevamos más de tres décadas dedicados al oficio de la joyería y la relojería en Barcelona.<br>Somos una empresa familiar que ha crecido al lado de quienes entienden<br>que el <em>lujo verdadero</em> no es el precio, sino la singularidad,<br>la artesanía y el vínculo que une a una persona con su joya para siempre."</blockquote>
+<!-- HISTORIA (formato home) -->
+<section class="section-story">
+  <div class="story-visual">
+    <div class="story-frame">
+      <div class="story-img-wrap">
+        <img src="images/historia-tienda.png" alt="Tienda histórica de Moreno Santos" style="height:560px;width:auto;display:block;">
+        <div class="story-badge"><span>30+</span><span>Años</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="story-content">
+    <p class="section-label">Nuestra historia</p>
+    <h2 class="story-title">"Llevamos más de tres décadas dedicados al oficio de la joyería y la relojería en Barcelona.<br>Somos una empresa familiar que ha crecido al lado de quienes entienden<br>que el <em>lujo verdadero</em> no es el precio, sino la singularidad,<br>la artesanía y el vínculo que une a una persona con su joya para siempre."</h2>
+    <div class="story-divider"></div>
+  </div>
 </section>
 
 <!-- VALORES -->
