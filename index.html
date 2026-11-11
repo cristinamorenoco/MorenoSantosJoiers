@@ -111,10 +111,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .promo-close:hover { background: var(--lilac); color: var(--white); }
   @media (max-width: 640px) {
-    .promo-card { grid-template-columns: 1fr; max-height: 92vh; overflow-y: auto; }
+    .promo-card { grid-template-columns: minmax(0, 1fr); max-height: 92vh; overflow-y: auto; }
     .promo-img { min-height: 0; height: 240px; order: -1; }
-    .promo-body { padding: 2rem 1.75rem 2.25rem; }
+    .promo-body { padding: 2rem 1.75rem 2.25rem; min-width: 0; }
     .promo-title { font-size: 2rem; }
+    .promo-body .email-form input[type="email"] { min-width: 0; width: 100%; padding: 1.1rem 1rem; }
+    .promo-body .email-form button { padding: 1.1rem 1rem; }
   }
 
   /* ─── NAV ─── */
