@@ -741,7 +741,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     line-height: 2; letter-spacing: 0.03em;
   }
   .email-form {
-    display: flex; max-width: 440px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; max-width: 440px; margin: 0 auto;
     border: 1px solid var(--border);
     background: var(--white);
     box-shadow: 0 10px 40px rgba(180,143,200,0.1);
@@ -1346,11 +1346,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <input type="hidden" name="form-name" value="newsletter">
       <input type="hidden" name="subject" value="[SUSCRIPCIÓN]">
       <input type="email" name="email" placeholder="Tu correo electrónico" required>
-      <label style="display:block; font-size:0.72rem; margin:0.8rem 0; line-height:1.5;">
-        <input type="checkbox" name="consentimiento" value="si" required>
-        Acepto recibir la newsletter de Moreno Santos Joiers y he leído la <a href="privacidad.html">política de privacidad</a>.
-      </label>
       <button type="submit">Suscribirse</button>
+      <label style="flex-basis:100%; order:3; display:flex; gap:0.6rem; align-items:flex-start; padding:0.9rem 1.5rem; border-top:1px solid var(--border); font-family:'Jost',sans-serif; font-size:0.66rem; font-weight:300; letter-spacing:0.04em; line-height:1.6; color:var(--ink-mid); text-align:left;">
+        <input type="checkbox" name="consentimiento" value="si" required style="margin-top:0.25rem;">
+        <span>Acepto recibir la newsletter de Moreno Santos Joiers y he leído la <a href="privacidad.html" style="color:var(--lilac);">política de privacidad</a>.</span>
+      </label>
     </form>
   </div>
 </section>
