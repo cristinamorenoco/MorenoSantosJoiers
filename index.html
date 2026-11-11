@@ -255,6 +255,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     transform: translateY(-2px);
   }
 
+  .btn-filled {
+    display: inline-block; text-align: center;
+    padding: 1rem 2rem;
+    background: var(--lilac); color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid var(--lilac);
+    transition: background .35s, transform .3s;
+  }
+  .btn-filled:hover { background: var(--ink); border-color: var(--ink); transform: translateY(-2px); }
+  .hero-cta-group { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .hero-cta-group .btn-outline,
+  .hero-cta-group .btn-filled { width: 16rem; box-sizing: border-box; }
+
   /* Hero visual side — photo grid */
   .hero-right {
     position: relative; overflow: hidden;
@@ -978,7 +993,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </h1>
     <p class="hero-subtitle">Creamos joyas atemporales a medida, con diseños modernos y atemporales con metales y piedras preciosas.</p>
     <div class="hero-cta-group">
-      <a href="atelier.html" class="btn-outline">Asesoramiento →</a>
+      <a href="atelier.html" class="btn-outline">Asesoramiento</a>
+      <a href="contacto.html" class="btn-filled">Encuéntranos</a>
     </div>
   </div>
 
