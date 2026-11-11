@@ -1389,6 +1389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     fetch('/', { method: 'POST', body: new FormData(form) })
       .then(() => {
         form.style.display = 'none';
+        document.querySelector('.promo-avisa').style.display = 'none';
         document.getElementById('promoSuccess').style.display = 'block';
       })
       .catch(() => {
