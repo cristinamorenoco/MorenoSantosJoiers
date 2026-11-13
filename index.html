@@ -948,19 +948,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ✦ ¡Gracias! Te avisaremos en cuanto la colección esté disponible.
       </div>
       <p class="promo-avisa" style="font-size:0.78rem; color:var(--ink-light); line-height:1.8; letter-spacing:0.03em; margin:1.75rem 0 0;">Sé la primera en ver las joyas</p>
-      <form class="email-form" id="promoForm" name="newsletter" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="handlePromo(event)" style="margin:1.25rem auto 0;">
-        <input type="hidden" name="form-name" value="newsletter">
-        <input type="hidden" name="subject" value="[SUSCRIPCIÓN] Aviso 999">
-        <p style="display:none;"><label>No rellenar: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+      <form class="email-form" id="promoForm" method="POST" action="https://799f9e65.sibforms.com/serve/MUIFAMxBO0AtiQW_2AMaV3us0YVWanAFUXfi6VaqzrZWzX36Go5PinI9lnlGFEHN48S1BmBRcKITzB3wkl-2lIiZpAaFAf9RJRDMT6tpDVaT1zR6cGCGfEDj4AEuoFetpcrtRssmtUE1z9DXhhza57IApFL7OtM8-6RhnrM7C1q3czfMwYJf8LGBplmfQWzE6pKr3FkjqcBksRUsDw==" onsubmit="handlePromo(event)" style="margin:1.25rem auto 0;">
+        <input type="hidden" name="locale" value="es">
+        <input type="hidden" name="html_type" value="simple">
+        <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" style="display:none;">
+        <input type="email" name="EMAIL" placeholder="Tu correo electrónico" required>
         <button type="submit">Avísame</button>
         <label style="flex-basis:100%; order:3; display:flex; justify-content:flex-start; gap:0.3rem; align-items:flex-start; padding:0.9rem 1.5rem; font-family:'Jost',sans-serif; font-size:0.66rem; font-weight:300; letter-spacing:0.04em; line-height:1.6; color:var(--ink-mid); text-align:left;">
-          <input type="checkbox" name="consentimiento" value="si" required style="flex:none; width:auto; margin:0.05rem 0 0 0; padding:0;">
+          <input type="checkbox" name="OPT_IN" value="1" required style="flex:none; width:auto; margin:0.05rem 0 0 0; padding:0;">
           <span>Acepto que me avisen cuando la colección Novecento Noventa Nove esté disponible en la tienda. He leído la <a href="/privacidad" target="_blank" rel="noopener" style="color:var(--lilac);">política de privacidad</a>.</span>
-        </label>
-        <label style="flex-basis:100%; order:4; display:flex; justify-content:flex-start; gap:0.3rem; align-items:flex-start; padding:0 1.5rem 0.9rem; font-family:'Jost',sans-serif; font-size:0.66rem; font-weight:300; letter-spacing:0.04em; line-height:1.6; color:var(--ink-mid); text-align:left;">
-          <input type="checkbox" name="newsletter_optin" value="si" style="flex:none; width:auto; margin:0.05rem 0 0 0; padding:0;">
-          <span>Quiero recibir la newsletter de Moreno Santos Joiers con novedades de colecciones y del taller. Puedo darme de baja cuando quiera.</span>
         </label>
       </form>
     </div>
@@ -1388,11 +1384,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script>
-  // Aviso 999 (popup Novecento)
+  // Aviso 999 (popup Novecento): envío a Brevo (lista Lanzamiento 999)
   function handlePromo(e) {
     e.preventDefault();
     const form = document.getElementById('promoForm');
-    fetch('/', { method: 'POST', body: new FormData(form) })
+    fetch(form.action, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: new URLSearchParams(new FormData(form))
+    })
       .then(() => {
         form.style.display = 'none';
         document.querySelector('.promo-avisa').style.display = 'none';
